@@ -1,978 +1,843 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="中国-东南亚职业教育合作动态周刊：追踪中国与东南亚职业教育合作、技能需求与区域平台动态。">
-  <title>中国-东南亚职业教育合作动态周刊</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国-东盟职业教育合作情报周刊</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #05070b;
-      --panel: #0b111a;
-      --panel-2: #111a25;
-      --panel-3: #07151b;
-      --line: rgba(255, 255, 255, .11);
-      --line-strong: rgba(255, 255, 255, .2);
-      --text: #f7f4eb;
-      --muted: #aeb7c3;
-      --soft: #778291;
-      --amber: #f3b43f;
-      --amber-soft: rgba(243, 180, 63, .14);
-      --amber-line: rgba(243, 180, 63, .42);
-      --teal: #3fd6c7;
-      --teal-soft: rgba(63, 214, 199, .13);
-      --teal-line: rgba(63, 214, 199, .4);
-      --red: #ef6b5b;
-      --blue: #7aa7ff;
-      --shadow: 0 24px 80px rgba(0, 0, 0, .42);
-      --radius: 8px;
-      --max: 1180px;
+      --bg-primary: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --text-primary: #1A1A2E;
+      --text-secondary: #4A5568;
+      --text-muted: #718096;
+      --accent-amber: #D4A017;
+      --accent-amber-light: #FEF3C7;
+      --accent-teal: #0EA5A7;
+      --accent-teal-light: #CFFAFE;
+      --border-light: #E5E7EB;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at 74% 12%, rgba(63, 214, 199, .1), transparent 26rem),
-        radial-gradient(circle at 18% 4%, rgba(243, 180, 63, .1), transparent 24rem),
-        linear-gradient(180deg, #060910 0%, #030509 48%, #070a0f 100%);
-      color: var(--text);
-      font-family: "DM Sans", system-ui, sans-serif;
-      line-height: 1.55;
     }
 
-    a { color: inherit; }
-
-    button, summary { font: inherit; }
-
-    .site-shell {
+    /* Header */
+    .site-header {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D2D4A 100%);
+      color: white;
+      padding: 48px 24px 56px;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .market-grid {
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
-      background-size: 68px 68px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
-    }
-
-    .ticker {
-      position: sticky;
+    .site-header::before {
+      content: '';
+      position: absolute;
       top: 0;
-      z-index: 30;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-      background: rgba(5, 7, 11, .86);
-      backdrop-filter: blur(18px);
-      min-height: 44px;
-      white-space: nowrap;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
     }
 
-    .ticker-label {
-      align-self: stretch;
-      display: grid;
-      place-items: center;
-      padding: 0 1rem;
-      background: var(--amber);
-      color: #171006;
-      font-size: .74rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 1.5rem;
-      color: var(--muted);
-      font-size: .78rem;
-      animation: ticker 38s linear infinite;
-    }
-
-    .ticker strong { color: var(--text); font-weight: 700; }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .container {
-      width: min(calc(100% - 2rem), var(--max));
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
       margin: 0 auto;
     }
 
-    .hero {
-      position: relative;
-      min-height: 620px;
-      display: grid;
-      align-items: end;
-      padding: 5.5rem 0 3rem;
-      border-bottom: 1px solid var(--line);
+    .site-header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
     }
 
-    .hero-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      opacity: .88;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(90deg, rgba(5, 7, 11, .95) 0%, rgba(5, 7, 11, .62) 52%, rgba(5, 7, 11, .2) 100%),
-        linear-gradient(0deg, var(--bg) 0%, transparent 48%);
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) 360px;
-      gap: 2rem;
-      align-items: end;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      color: var(--amber);
-      font-size: .78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .pulse {
-      width: .55rem;
-      height: .55rem;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 0 0 rgba(63, 214, 199, .55);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      70% { box-shadow: 0 0 0 12px rgba(63, 214, 199, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(63, 214, 199, 0); }
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      line-height: 1.02;
-      font-family: "DM Serif Display", Georgia, serif;
+    .site-header .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 24px;
       font-weight: 400;
     }
 
-    h1 {
-      max-width: 860px;
-      margin-top: 1.15rem;
-      font-size: 5rem;
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
     }
 
-    .subtitle {
-      max-width: 760px;
-      margin: 1.4rem 0 0;
-      color: #d9dedf;
-      font-size: 1.14rem;
+    .header-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.85;
     }
 
-    .hero-actions {
+    /* Main container */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* Filter bar */
+    .filter-section {
+      margin-bottom: 40px;
+    }
+
+    .filter-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .filter-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: .8rem;
-      margin-top: 1.8rem;
+      gap: 10px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: .75rem 1rem;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      color: var(--text);
-      background: rgba(255, 255, 255, .05);
-      text-decoration: none;
-      font-size: .86rem;
-      font-weight: 800;
-    }
-
-    .button.primary {
-      border-color: var(--amber-line);
-      background: var(--amber);
-      color: #171006;
-    }
-
-    .briefing-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(9, 15, 23, .72);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .briefing-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.1rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .briefing-row:last-child { border-bottom: 0; }
-
-    .briefing-kicker {
-      display: block;
-      margin-bottom: .2rem;
-      color: var(--soft);
-      font-size: .72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .briefing-value {
-      color: var(--text);
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-
-    .freshness {
-      color: var(--teal);
-      font-size: .78rem;
-      font-weight: 800;
-      text-align: right;
-    }
-
-    .section {
-      padding: 4.5rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      align-items: end;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-head h2 {
-      font-size: 2.6rem;
-    }
-
-    .section-note {
-      max-width: 420px;
-      margin: 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .country-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .country {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
-      overflow: clip;
-    }
-
-    .country[data-tone="amber"] {
-      border-color: var(--amber-line);
-      background:
-        linear-gradient(120deg, var(--amber-soft), transparent 52%),
-        linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
-    }
-
-    .country[data-tone="teal"] {
-      border-color: var(--teal-line);
-      background:
-        linear-gradient(120deg, var(--teal-soft), transparent 52%),
-        linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
-    }
-
-    .country > summary {
+    .filter-pill {
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 500;
       cursor: pointer;
-      list-style: none;
-      padding: 1.25rem;
+      transition: all 0.2s ease;
+      border: 1.5px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-secondary);
     }
 
-    .country > summary::-webkit-details-marker,
-    .entry > summary::-webkit-details-marker { display: none; }
+    .filter-pill:hover {
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      transform: translateY(-1px);
+    }
+
+    .filter-pill.active {
+      background: var(--accent-teal);
+      border-color: var(--accent-teal);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-pill[data-country="all"].active {
+      background: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* Country section */
+    .country-section {
+      margin-bottom: 48px;
+    }
 
     .country-header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .country-name {
-      display: block;
-      font-family: "DM Serif Display", Georgia, serif;
-      font-size: 2.2rem;
-      line-height: 1;
-    }
-
-    .country-meta {
       display: flex;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-top: .8rem;
-    }
-
-    .status-pill,
-    .tag,
-    .mini-pill {
-      display: inline-flex;
       align-items: center;
-      min-height: 26px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: .25rem .55rem;
-      color: var(--muted);
-      background: rgba(0, 0, 0, .18);
-      font-size: .72rem;
-      font-weight: 800;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-light);
     }
 
-    .country[data-tone="amber"] .status-pill { color: var(--amber); border-color: var(--amber-line); }
-    .country[data-tone="teal"] .status-pill { color: var(--teal); border-color: var(--teal-line); }
+    .country-header h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
 
-    .expand-icon {
+    .country-header .flag {
+      font-size: 1.75rem;
+    }
+
+    .country-header .count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-primary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-left: auto;
+    }
+
+    /* Card grid */
+    .card-grid {
       display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      color: var(--text);
-      transition: transform .2s ease, border-color .2s ease;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    details[open] > summary .expand-icon {
-      transform: rotate(45deg);
-      border-color: var(--line-strong);
-    }
-
-    .country-body {
-      padding: 0 1.25rem 1.25rem;
-    }
-
-    .specialty-strip {
-      display: flex;
-      gap: .45rem;
-      flex-wrap: wrap;
-      padding-top: 1rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .entry-list {
-      display: grid;
-      gap: .7rem;
-      margin-top: 1rem;
-    }
-
-    .entry {
-      border-top: 1px solid var(--line);
-      background: rgba(0, 0, 0, .13);
-    }
-
-    .entry summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 1rem 0;
-    }
-
-    .entry-title-row {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: .8rem;
-      align-items: start;
-    }
-
-    .date-chip {
-      min-width: 88px;
-      padding: .32rem .5rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--text);
-      background: rgba(255, 255, 255, .05);
-      font-size: .72rem;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .entry-title {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .source-line {
-      margin-top: .25rem;
-      color: var(--soft);
-      font-size: .8rem;
-    }
-
-    .entry-body {
-      display: grid;
-      gap: 1rem;
-      padding: 0 0 1.15rem 0;
-      color: #d7dde2;
-      font-size: .92rem;
-    }
-
-    .entry-body p { margin: 0; }
-
-    .entry-section-title {
-      margin: 0 0 .4rem;
-      color: var(--text);
-      font-size: .72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .evidence-list {
-      margin: 0;
-      padding-left: 1.15rem;
-      color: #c9d0d8;
-    }
-
-    .evidence-list li + li { margin-top: .35rem; }
-
-    .url-link {
-      display: inline-block;
-      max-width: 100%;
-      color: var(--teal);
-      overflow-wrap: anywhere;
-      text-decoration-color: rgba(63, 214, 199, .45);
-    }
-
-    .platform-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .platform {
-      display: flex;
-      min-height: 320px;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background:
-        linear-gradient(180deg, rgba(122, 167, 255, .1), transparent 45%),
-        rgba(255, 255, 255, .035);
-    }
-
-    .platform h3 {
-      margin-top: .7rem;
-      font-family: "DM Sans", system-ui, sans-serif;
-      font-size: 1.04rem;
-      line-height: 1.25;
-      font-weight: 800;
-    }
-
-    .platform p {
-      color: var(--muted);
-      font-size: .86rem;
-    }
-
-    .platform .evidence-list {
-      margin-top: .75rem;
-      font-size: .82rem;
-    }
-
-    .recommendations {
-      display: grid;
-      gap: .8rem;
-      counter-reset: rec;
-    }
-
-    .recommendation {
-      counter-increment: rec;
-      display: grid;
-      grid-template-columns: 72px 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .recommendation::before {
-      content: counter(rec, decimal-leading-zero);
-      color: var(--amber);
-      font-family: "DM Serif Display", Georgia, serif;
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .recommendation h3 {
-      font-family: "DM Sans", system-ui, sans-serif;
-      font-size: 1.02rem;
-      font-weight: 800;
-    }
-
-    .recommendation p {
-      margin: .25rem 0 0;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .priority {
-      color: #08100f;
-      background: var(--teal);
-      border: 0;
-    }
-
-    .footer {
-      padding: 2rem 0 3rem;
-      color: var(--soft);
-      font-size: .84rem;
-    }
-
-    .loading,
-    .error {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      color: var(--muted);
-      background: rgba(255, 255, 255, .035);
-    }
-
-    .error { border-color: rgba(239, 107, 91, .5); color: #ffd0cb; }
-
-    @media (max-width: 980px) {
-      .hero { min-height: auto; padding-top: 4rem; }
-      .hero-layout { grid-template-columns: 1fr; }
-      h1 { font-size: 3.6rem; }
-      .briefing-card { max-width: 520px; }
-      .country-grid,
-      .platform-grid { grid-template-columns: 1fr; }
-      .platform { min-height: auto; }
-      .section-head { align-items: start; flex-direction: column; }
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 640px) {
-      .container { width: min(calc(100% - 1rem), var(--max)); }
-      .ticker { min-height: 40px; }
-      .ticker-label { padding: 0 .7rem; }
-      .hero { padding: 3.2rem 0 2rem; }
-      h1 { font-size: 2.65rem; }
-      .subtitle { font-size: 1rem; }
-      .section { padding: 3rem 0; }
-      .section-head h2 { font-size: 2.15rem; }
-      .country > summary,
-      .country-body { padding-left: .9rem; padding-right: .9rem; }
-      .country-name { font-size: 1.75rem; }
-      .entry-title-row { grid-template-columns: 1fr auto; }
-      .date-chip { grid-column: 1 / -1; width: fit-content; }
-      .recommendation { grid-template-columns: 1fr; }
-      .recommendation::before { font-size: 1.6rem; }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* News card */
+    .news-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+
+    .card-accent {
+      height: 4px;
+    }
+
+    .card-accent.amber {
+      background: linear-gradient(90deg, var(--accent-amber), #F59E0B);
+    }
+
+    .card-accent.teal {
+      background: linear-gradient(90deg, var(--accent-teal), #14B8A6);
+    }
+
+    .card-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+    }
+
+    .card-date {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .card-reading-time {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .card-flags {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .card-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-excerpt {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .tag.cooperation {
+      background: var(--accent-amber-light);
+      color: #B45309;
+    }
+
+    .tag.needs {
+      background: var(--accent-teal-light);
+      color: #0E8078;
+    }
+
+    .tag.platform {
+      background: #EDE9FE;
+      color: #6B21A8;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+      margin-top: auto;
+    }
+
+    .card-source {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .card-link:hover {
+      color: var(--accent-amber);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-muted);
+    }
+
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--text-primary);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .site-footer p {
+      max-width: 700px;
+      margin: 0 auto 8px;
+    }
+
+    .site-footer .updated {
+      opacity: 0.5;
+      font-size: 0.75rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .country-section {
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .country-section:nth-child(2) { animation-delay: 0.05s; }
+    .country-section:nth-child(3) { animation-delay: 0.1s; }
+    .country-section:nth-child(4) { animation-delay: 0.15s; }
+    .country-section:nth-child(5) { animation-delay: 0.2s; }
+    .country-section:nth-child(6) { animation-delay: 0.25s; }
+    .country-section:nth-child(7) { animation-delay: 0.3s; }
+    .country-section:nth-child(8) { animation-delay: 0.35s; }
+    .country-section:nth-child(9) { animation-delay: 0.4s; }
+
+    /* Hidden cards */
+    .news-card.hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="site-shell">
-    <div class="market-grid" aria-hidden="true"></div>
-
-    <div class="ticker" aria-label="数据摘要">
-      <div class="ticker-label">Live Brief</div>
-      <div class="ticker-track" id="tickerTrack">
-        <span>Loading China-ASEAN vocational education signals...</span>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>中国-东盟职业教育合作情报周刊</h1>
+      <p class="subtitle">每周汇总东南亚六国职业教育最新动态</p>
+      <div class="header-meta">
+        <span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+          <span id="current-date"></span>
+        </span>
+        <span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
+          第<span id="week-number"></span>周
+        </span>
+        <span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6z"/></svg>
+          共 <span id="article-count">0</span> 条资讯
+        </span>
       </div>
     </div>
+  </header>
 
-    <header class="hero">
-      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-      <div class="container hero-layout">
-        <div>
-          <div class="eyebrow"><span class="pulse"></span> Weekly intelligence brief</div>
-          <h1>中国-东南亚职业教育合作动态周刊</h1>
-          <p class="subtitle">追踪中国与东南亚职业教育合作项目、区域平台动向，以及面向产业需求的技能合作机会。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#countries">查看国家动态</a>
-            <a class="button" href="#recommendations">优先建议</a>
-          </div>
-        </div>
-        <aside class="briefing-card" aria-label="周刊数据状态">
-          <div class="briefing-row">
-            <div>
-              <span class="briefing-kicker">Last updated</span>
-              <span class="briefing-value" id="lastUpdated">Loading</span>
-            </div>
-            <div class="freshness" id="freshness">Checking</div>
-          </div>
-          <div class="briefing-row">
-            <div>
-              <span class="briefing-kicker">Countries</span>
-              <span class="briefing-value" id="countryCount">--</span>
-            </div>
-            <div>
-              <span class="briefing-kicker">Entries</span>
-              <span class="briefing-value" id="entryCount">--</span>
-            </div>
-          </div>
-          <div class="briefing-row">
-            <div>
-              <span class="briefing-kicker">Amber</span>
-              <span>Existing cooperation</span>
-            </div>
-            <div>
-              <span class="briefing-kicker">Teal</span>
-              <span>Needs and opportunities</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </header>
+  <main class="main-container">
+    <section class="filter-section">
+      <p class="filter-label">按国家筛选</p>
+      <div class="filter-pills" id="filter-pills"></div>
+    </section>
 
-    <main>
-      <section class="section" id="countries">
-        <div class="container">
-          <div class="section-head">
-            <h2>Country Signals</h2>
-            <p class="section-note">国家板块按合作成熟度分色：柬埔寨、老挝突出既有合作基础；其余国家突出技能缺口和项目机会。</p>
-          </div>
-          <div class="loading" id="countryLoading">Loading country sections from data file...</div>
-          <div class="country-grid" id="countryGrid"></div>
-        </div>
-      </section>
+    <div id="news-container"></div>
+  </main>
 
-      <section class="section" id="platforms">
-        <div class="container">
-          <div class="section-head">
-            <h2>Regional Platforms</h2>
-            <p class="section-note">区域平台记录显示可复用的项目入口、培训网络与多边合作窗口。</p>
-          </div>
-          <div class="platform-grid" id="platformGrid"></div>
-        </div>
-      </section>
-
-      <section class="section" id="recommendations">
-        <div class="container">
-          <div class="section-head">
-            <h2>Priority Recommendations</h2>
-            <p class="section-note">基于本期记录生成的行动优先级，面向院校、企业与地方合作项目设计。</p>
-          </div>
-          <div class="recommendations" id="recommendationList"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        Data source: <code>output/asean_vocational_news.json</code>. Every article card links to its original source URL.
-      </div>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <p>数据来源：东盟各国教育部官网、中国驻外使领馆经商处、职业教育走出去院校</p>
+    <p class="updated">最后更新：<span id="last-updated"></span></p>
+  </footer>
 
   <script>
-    const DATA_URL = "../output/asean_vocational_news.json";
-    const EMBEDDED_DATA = {"generated_at":"2026-05-13T09:35:59.119436+00:00","method":{"search_queries":["China ASEAN vocational education cooperation Cambodia Laos 2024 2025","China Cambodia vocational education partnership school specialty 2024","China Laos vocational education cooperation railway college e-commerce 2024","China ASEAN vocational education Cambodia Laos Xinhua China Daily MOE 2025","Vietnam TVET skills demand 2024 renewable energy digital transformation","Thailand TVET skills demand 2024 electric vehicle digital workforce","Myanmar TVET skills demand 2024 renewable energy industrial training","Malaysia TVET skills demand 2024 AI EV cybersecurity green skills","Indonesia vocational education skills mismatch 2024 digital green transition","Philippines TVET responsiveness industry demand 2024 construction manufacturing tourism"],"target_domains":["xinhuanet.com","news.cn","chinadaily.com.cn","yidaiyilu.gov.cn","moe.gov.cn","cctv.com","people.cn","enghunan.gov.cn","tvet-vietnam.org","worldbank.org","oecd.org","pids.gov.ph","adb.org","ilo.org"],"note":"Live web search/scraping is attempted unless --seed-only is passed. If network is blocked, verified seed records are still used.","errors":["Live search/scraping skipped because --seed-only was used."]},"country_profiles":{"Cambodia":{"status":"existing cooperation highlighted","article_count":4,"priority_specialties":["Chinese language","Chinese language + vocational skills","automotive service","construction","e-commerce","engineering","green energy","hydropower","logistics","manufacturing","modern logistics management","network engineering","new energy power generation","services","tourism management","water resources"],"source_titles":["Cambodia-China University of Technology and Science inaugurated in Phnom Penh","2024 Chinese Language + Hydropower Vocational Skills training opened for Cambodia","China-Cambodia Institute of Modern Craftsmanship of Green Energy recognized as excellent partner","Cambodian education official says China's VET system is a valuable model"]},"Laos":{"status":"existing cooperation highlighted","article_count":2,"priority_specialties":["e-commerce","railway engineering","railway maintenance","railway operation","teacher training","vocational standards"],"source_titles":["Lao Railway Vocational and Technical College fills railway-technology education gap","China-Laos Chuyi Academy opens in Vientiane"]},"Vietnam":{"status":"needs / opportunity mapping","article_count":2,"priority_specialties":["digital skills","energy storage","forestry","green skills","grid management","operation and maintenance","renewable energy","smart energy","solar power","wastewater management","wind power"],"source_titles":["Vietnam TVET reform targets green and digital transformation","Vietnam renewable-energy skills study highlights O&M gap"]},"Thailand":{"status":"needs / opportunity mapping","article_count":2,"priority_specialties":["battery systems","charging systems","digital skills","electric vehicles","literacy","maintenance","socioemotional skills","testing"],"source_titles":["Thailand faces foundational and digital skills crisis","Thailand EV workforce development focuses on 150,000 skilled personnel"]},"Myanmar":{"status":"needs / opportunity mapping","article_count":2,"priority_specialties":["CAD/CAM","digital TVET","electrician","electronics","foundry","green technology","machinery","renewable energy","trainer training"],"source_titles":["Myanmar renewable-energy TVET trainer programme used virtual TVET","Myanmar industrial training center offers machinery, CAD/CAM, electrician, electronics, foundry courses"]},"Malaysia":{"status":"needs / opportunity mapping","article_count":2,"priority_specialties":["AI","advanced materials","cybersecurity","digital skills","electric vehicles","farm mechanisation","green skills","industry alignment","integrated circuit design","quality assurance","wafer fabrication"],"source_titles":["Malaysia added RM200 million for TVET in high-value sectors","OECD says Malaysia's TVET needs streamlining and stronger alignment with firm needs"]},"Indonesia":{"status":"needs / opportunity mapping","article_count":1,"priority_specialties":["digital skills","green transition","information-processing skills","local workforce needs"],"source_titles":["Indonesia 2024 OECD survey calls for local industry role in vocational training"]},"Philippines":{"status":"needs / opportunity mapping","article_count":2,"priority_specialties":["AI","analytics","business process management","construction","entrepreneurship","manufacturing","security","soft skills","software development","tourism","trainer upgrading"],"source_titles":["Philippine TVET study identifies construction, manufacturing, tourism barriers","ADB Philippines youth employment strategy backs higher-skilled jobs"]}},"categories":{"existing_cooperation":[{"title":"Cambodia-China University of Technology and Science inaugurated in Phnom Penh","url":"https://studychina.chinadaily.com.cn/s/202401/02/WS6593a151498ed2d7b7ea40cf/nanjing-vocational-university-of-industry-technology-establishes-vocational-school-in-cambodia.html","source":"China Daily / Study China","date":"2024-01-02","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["new energy power generation","automotive service","network engineering","e-commerce","modern logistics management","tourism management"],"summary":"Nanjing Vocational University of Industry Technology and the Federation of Khmer Chinese in Cambodia established Cambodia-China University of Technology and Science in Phnom Penh. It is described as China's first overseas applied technology university for vocational education and offers dual China-Cambodia degree pathways. This record is coded for Cambodia, China with a existing cooperation focus. The source is China Daily / Study China, published on 2024-01-02, and the relevant specialties are new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management. Specific evidence recorded from the source includes: 1) Inauguration ceremony held in Phnom Penh on 2023-12-20. 2) Six undergraduate majors listed: new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management. 3) MOE Vice Minister Wu Yan said China had established 19 overseas educational institutions and projects in Cambodia. 4) Jiangsu universities trained nearly 1,800 Cambodian students over the previous five years. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["Inauguration ceremony held in Phnom Penh on 2023-12-20.","Six undergraduate majors listed: new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management.","MOE Vice Minister Wu Yan said China had established 19 overseas educational institutions and projects in Cambodia.","Jiangsu universities trained nearly 1,800 Cambodian students over the previous five years."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Lao Railway Vocational and Technical College fills railway-technology education gap","url":"https://studychina.chinadaily.com.cn/s/202406/04/WS665e7ae9498ed2d7b7eaf8ca/lao-president-hails-china-laos-railway-cooperation.html","source":"China Daily","date":"2024-06-04","countries":["Laos","China"],"category":"existing_cooperation","specialties":["railway engineering","railway operation","railway maintenance"],"summary":"Lao President Thongloun Sisoulith called Lao Railway Vocational and Technical College a notable Laos-China cooperation achievement that fills a national gap in railway technology education. The Chinese-aided college in Vientiane opened in 2023 with support from Kunming Railway Vocational and Technical College. This record is coded for Laos, China with a existing cooperation focus. The source is China Daily, published on 2024-06-04, and the relevant specialties are railway engineering, railway operation, railway maintenance. Specific evidence recorded from the source includes: 1) The college is in Vientiane and is the first institution teaching railway engineering in Laos. 2) Kunming Railway Vocational and Technical College began setup assistance in 2023. 3) The Chinese expert team is expected to continue support for four years. 4) The project serves China-Laos railway construction and operations talent needs. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["The college is in Vientiane and is the first institution teaching railway engineering in Laos.","Kunming Railway Vocational and Technical College began setup assistance in 2023.","The Chinese expert team is expected to continue support for four years.","The project serves China-Laos railway construction and operations talent needs."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 Chinese Language + Hydropower Vocational Skills training opened for Cambodia","url":"https://gxsdxy.cn/ywz/Admission/Training_Programs.htm","source":"Guangxi Vocational College of Water Resources and Electric Power","date":"2024-07-12","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["hydropower","water resources","Chinese language"],"summary":"GCWE and China Huadian Cambodia launched online training to cultivate overseas talent in water resources and hydropower and support Chinese enterprises in Cambodia. This record is coded for Cambodia, China with a existing cooperation focus. The source is Guangxi Vocational College of Water Resources and Electric Power, published on 2024-07-12, and the relevant specialties are hydropower, water resources, Chinese language. Specific evidence recorded from the source includes: 1) The opening ceremony was held on 2024-07-11. 2) The industry partner is Huadian Cambodia, linked to the Stung Russey Chrum Krom hydropower project. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The opening ceremony was held on 2024-07-11.","The industry partner is Huadian Cambodia, linked to the Stung Russey Chrum Krom hydropower project."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"China-Cambodia Institute of Modern Craftsmanship of Green Energy recognized as excellent partner","url":"https://www.gxsdxy.cn/ywz/info/1071/2092.htm","source":"Guangxi Vocational College of Water Resources and Electric Power","date":"2024-08-25","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["green energy","hydropower","Chinese language + vocational skills"],"summary":"Guangxi Vocational College of Water Resources and Electric Power, Prek Leap National Institute of Agriculture in Cambodia, and China Huadian's Cambodian hydropower project were selected as 2024 China-ASEAN Vocational Education Excellent Cooperation Partners. This record is coded for Cambodia, China with a existing cooperation focus. The source is Guangxi Vocational College of Water Resources and Electric Power, published on 2024-08-25, and the relevant specialties are green energy, hydropower, Chinese language + vocational skills. Specific evidence recorded from the source includes: 1) Annual conference of the China-ASEAN Vocational Education Consortium was held in Guiyang on 2024-08-22. 2) The project is the China-Cambodia Institute of Modern Craftsmanship of Green Energy. 3) The partners plan talent cultivation and 'Chinese Language + Hydropower Vocational Skills' training. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["Annual conference of the China-ASEAN Vocational Education Consortium was held in Guiyang on 2024-08-22.","The project is the China-Cambodia Institute of Modern Craftsmanship of Green Energy.","The partners plan talent cultivation and 'Chinese Language + Hydropower Vocational Skills' training."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"China-Laos Chuyi Academy opens in Vientiane","url":"https://enghunan.gov.cn/hneng/News/Localnews/202411/t20241116_33500363.html","source":"Hunan Provincial Government / Chinanews","date":"2024-11-16","countries":["Laos","China"],"category":"existing_cooperation","specialties":["e-commerce","vocational standards","teacher training"],"summary":"Changsha Social Work College and Pakpasak Technical College opened the China-Laos Chuyi Academy in Vientiane with a first cohort of 45 Lao students and a new e-commerce specialty. This record is coded for Laos, China with a existing cooperation focus. The source is Hunan Provincial Government / Chinanews, published on 2024-11-16, and the relevant specialties are e-commerce, vocational standards, teacher training. Specific evidence recorded from the source includes: 1) First batch: 45 Lao students. 2) The cooperation focuses on a new e-commerce specialty. 3) Changsha Social Work College has worked with Laos since 2018. 4) It helped Laos develop three national-level vocational standards, two professional standards, 32 curriculum standards, and trained 150 Lao vocational teachers. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["First batch: 45 Lao students.","The cooperation focuses on a new e-commerce specialty.","Changsha Social Work College has worked with Laos since 2018.","It helped Laos develop three national-level vocational standards, two professional standards, 32 curriculum standards, and trained 150 Lao vocational teachers."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null}],"vocational_needs":[{"title":"Myanmar renewable-energy TVET trainer programme used virtual TVET","url":"https://www.cpsctech.org/2024/02/cpsc-labtech-most-myanmar-highlight.html","source":"Colombo Plan Staff College","date":"2024-02-08","countries":["Myanmar"],"category":"vocational_needs","specialties":["renewable energy","green technology","digital TVET","trainer training"],"summary":"CPSC, Labtech, and Myanmar's Ministry of Science and Technology trained 30 lecturers, professors, and trainers in renewable-energy systems using virtual TVET. This record is coded for Myanmar with a vocational needs focus. The source is Colombo Plan Staff College, published on 2024-02-08, and the relevant specialties are renewable energy, green technology, digital TVET, trainer training. Specific evidence recorded from the source includes: 1) The online programme ran 2024-02-05 to 2024-02-08. 2) Topics included digital TVET frameworks, blended learning, LMS reporting, competency-based training, and modern training system troubleshooting. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The online programme ran 2024-02-05 to 2024-02-08.","Topics included digital TVET frameworks, blended learning, LMS reporting, competency-based training, and modern training system troubleshooting."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Thailand faces foundational and digital skills crisis","url":"https://www.worldbank.org/en/news/feature/2024/02/21/empowering-thailand-a-call-for-action-to-strengthen-foundational-skills","source":"World Bank / EEF Thailand","date":"2024-02-21","countries":["Thailand"],"category":"vocational_needs","specialties":["digital skills","literacy","socioemotional skills"],"summary":"The World Bank and Equitable Education Fund reported severe foundational skills gaps in Thailand: many youth and adults lack reading literacy, digital, and socioemotional skills needed for work and advanced training. This record is coded for Thailand with a vocational needs focus. The source is World Bank / EEF Thailand, published on 2024-02-21, and the relevant specialties are digital skills, literacy, socioemotional skills. Specific evidence recorded from the source includes: 1) Two-thirds of Thai youth and adults struggled to comprehend basic texts. 2) Three-quarters found basic online functions challenging. 3) The report argues that improving foundational skills could raise GDP by up to 20%. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Two-thirds of Thai youth and adults struggled to comprehend basic texts.","Three-quarters found basic online functions challenging.","The report argues that improving foundational skills could raise GDP by up to 20%."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Vietnam TVET reform targets green and digital transformation","url":"https://www.tvet-vietnam.org/programme-overview","source":"GIZ / TVET Viet Nam","date":"2024-03-01","countries":["Vietnam"],"category":"vocational_needs","specialties":["renewable energy","forestry","wastewater management","digital skills","green skills"],"summary":"Vietnam's TVET system is being oriented toward a socially just, green and digital transition. GIZ's 2024-2027 programme supports selected TVET institutes in environmental and digital skills for energy, forestry, and wastewater-related fields. This record is coded for Vietnam with a vocational needs focus. The source is GIZ / TVET Viet Nam, published on 2024-03-01, and the relevant specialties are renewable energy, forestry, wastewater management, digital skills, green skills. Specific evidence recorded from the source includes: 1) Programme Reform of TVET in Viet Nam III runs from 2024 to 2027. 2) Vietnam has fast-growing industry, service, and digital economy sectors but lacks skilled workers. 3) Needs include business cooperation, dual/cooperative training, inclusive access, digitalization, and greening TVET. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Programme Reform of TVET in Viet Nam III runs from 2024 to 2027.","Vietnam has fast-growing industry, service, and digital economy sectors but lacks skilled workers.","Needs include business cooperation, dual/cooperative training, inclusive access, digitalization, and greening TVET."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Philippine TVET study identifies construction, manufacturing, tourism barriers","url":"https://pids.gov.ph/publication/research-paper-series/issues-in-philippine-tvet-responsiveness-to-industry-demand-and-barriers-to-access-among-disadvantaged-youth","source":"Philippine Institute for Development Studies","date":"2024-03-11","countries":["Philippines"],"category":"vocational_needs","specialties":["construction","manufacturing","tourism","soft skills","trainer upgrading"],"summary":"PIDS assessed Philippine TVET responsiveness to industry demand through enterprise-based training providers in construction, manufacturing, and tourism. Issues include the poor image of construction training, outdated public training facilities, trainers lacking current industry know-how, and underdeveloped soft skills. This record is coded for Philippines with a vocational needs focus. The source is Philippine Institute for Development Studies, published on 2024-03-11, and the relevant specialties are construction, manufacturing, tourism, soft skills, trainer upgrading. Specific evidence recorded from the source includes: 1) Study code RPS 2024-03, published 2024-03-11. 2) Also examines barriers keeping NEET youth from vocational education. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Study code RPS 2024-03, published 2024-03-11.","Also examines barriers keeping NEET youth from vocational education."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Malaysia added RM200 million for TVET in high-value sectors","url":"https://www.nst.com.my/amp/news/nation/2024/06/1060880/pm-announces-rm200-million-boost-tvet-programmes","source":"New Straits Times","date":"2024-06-08","countries":["Malaysia"],"category":"vocational_needs","specialties":["electric vehicles","cybersecurity","AI","advanced materials","integrated circuit design","wafer fabrication","farm mechanisation"],"summary":"Malaysia announced an additional RM200 million for TVET programmes to meet high-value sector demand, including EVs, cybersecurity, AI, advanced materials, electronics, engineering design, wafer fabrication, and agricultural automation. This record is coded for Malaysia with a vocational needs focus. The source is New Straits Times, published on 2024-06-08, and the relevant specialties are electric vehicles, cybersecurity, AI, advanced materials, integrated circuit design, wafer fabrication, farm mechanisation. Specific evidence recorded from the source includes: 1) The funds are channelled through the Skills Development Fund Corporation. 2) Sectors also include energy transition, high-value electrical and electronics, and agriculture. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The funds are channelled through the Skills Development Fund Corporation.","Sectors also include energy transition, high-value electrical and electronics, and agriculture."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Thailand EV workforce development focuses on 150,000 skilled personnel","url":"https://www.nxpo.or.th/th/en/26656/","source":"Thailand NXPO","date":"2024-07-15","countries":["Thailand"],"category":"vocational_needs","specialties":["electric vehicles","battery systems","maintenance","charging systems","testing"],"summary":"Thailand's MHESI-NXPO and Rajamangala University of Technology Lanna planned EV-HRD workforce development, aiming to produce 150,000 skilled personnel in five years. This record is coded for Thailand with a vocational needs focus. The source is Thailand NXPO, published on 2024-07-15, and the relevant specialties are electric vehicles, battery systems, maintenance, charging systems, testing. Specific evidence recorded from the source includes: 1) EV-HRD is part of the 'MHESI for EV' policy together with EV-Transformation and EV-Innovation. 2) Thailand is positioning itself as an EV production hub and needs technicians for maintenance, batteries, charging, testing, and powertrain systems. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["EV-HRD is part of the 'MHESI for EV' policy together with EV-Transformation and EV-Innovation.","Thailand is positioning itself as an EV production hub and needs technicians for maintenance, batteries, charging, testing, and powertrain systems."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"OECD says Malaysia's TVET needs streamlining and stronger alignment with firm needs","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2024_e45ca31a-en/full-report/towards-more-inclusive-growth_02760e13.html","source":"OECD","date":"2024-08-27","countries":["Malaysia"],"category":"vocational_needs","specialties":["industry alignment","quality assurance","digital skills","green skills"],"summary":"OECD's Malaysia 2024 survey says TVET effectiveness depends on delivering skills that match firms' needs and are directly applicable at work; the system is fragmented across many ministries with confusing certifications and accreditations. This record is coded for Malaysia with a vocational needs focus. The source is OECD, published on 2024-08-27, and the relevant specialties are industry alignment, quality assurance, digital skills, green skills. Specific evidence recorded from the source includes: 1) Ten ministries oversee various TVET programmes. 2) OECD recommends reorganization and streamlining, plus better programme ratings and registers. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Ten ministries oversee various TVET programmes.","OECD recommends reorganization and streamlining, plus better programme ratings and registers."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Cambodian education official says China's VET system is a valuable model","url":"https://english.news.cn/20241114/b1403227636e41b8bcd5bd9c661c7825/c.html","source":"Xinhua","date":"2024-11-14","countries":["Cambodia","China"],"category":"vocational_needs","specialties":["construction","engineering","logistics","manufacturing","services"],"summary":"Om Romny, secretary of state at Cambodia's Ministry of Education, Youth and Sport, said Cambodia faces limited training facilities, outdated curricula, and mismatch between skills taught and market demand, while BRI projects raise demand for skilled labor in construction, engineering, and logistics. This record is coded for Cambodia, China with a vocational needs focus. The source is Xinhua, published on 2024-11-14, and the relevant specialties are construction, engineering, logistics, manufacturing, services. Specific evidence recorded from the source includes: 1) Cambodia aims to become a regional manufacturing and service hub. 2) Needs include training infrastructure, updated curricula, rural and urban access, scholarships, and training exchanges. 3) BRI infrastructure projects increase demand for construction, engineering, and logistics skills. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Cambodia aims to become a regional manufacturing and service hub.","Needs include training infrastructure, updated curricula, rural and urban access, scholarships, and training exchanges.","BRI infrastructure projects increase demand for construction, engineering, and logistics skills."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Indonesia 2024 OECD survey calls for local industry role in vocational training","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-indonesia-2024_de87555a-en/full-report/accelerating-growth-and-attaining-socioeconomic-convergence_02e70f46.html","source":"OECD","date":"2024-11-26","countries":["Indonesia"],"category":"vocational_needs","specialties":["digital skills","information-processing skills","green transition","local workforce needs"],"summary":"OECD's Indonesia 2024 survey says adult skills are low, vocational training is a high share of secondary schooling but does not always match local workforce needs, and local governments and businesses should have greater say in defining training needs. This record is coded for Indonesia with a vocational needs focus. The source is OECD, published on 2024-11-26, and the relevant specialties are digital skills, information-processing skills, green transition, local workforce needs. Specific evidence recorded from the source includes: 1) Youth unemployment in 2023 remained above some ASEAN peers. 2) PIAAC data show low adult information-processing skills. 3) OECD recommends skill anticipation exercises in priority sectors and a central list of high-demand strategic occupations. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Youth unemployment in 2023 remained above some ASEAN peers.","PIAAC data show low adult information-processing skills.","OECD recommends skill anticipation exercises in priority sectors and a central list of high-demand strategic occupations."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Myanmar industrial training center offers machinery, CAD/CAM, electrician, electronics, foundry courses","url":"https://mdn.gov.mm/en/itc-thagaya-offer-industrial-skills-training-may","source":"Myanmar Digital News","date":"2025-02-20","countries":["Myanmar"],"category":"vocational_needs","specialties":["machinery","CAD/CAM","electrician","electronics","foundry"],"summary":"No. 3 Industrial Training Center Thagaya announced one-year industrial skills training from May 2025 to April 2026 with 30 percent theory and 70 percent practical learning. This record is coded for Myanmar with a vocational needs focus. The source is Myanmar Digital News, published on 2025-02-20, and the relevant specialties are machinery, CAD/CAM, electrician, electronics, foundry. Specific evidence recorded from the source includes: 1) Courses listed: Machinery, CAD/CAM, Electrician, Electronic, and Foundry. 2) Each course is capped at 30 trainees. 3) Trainees receive dormitory, food stipend, uniforms, and certificates. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Courses listed: Machinery, CAD/CAM, Electrician, Electronic, and Foundry.","Each course is capped at 30 trainees.","Trainees receive dormitory, food stipend, uniforms, and certificates."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Vietnam renewable-energy skills study highlights O&M gap","url":"https://www.tvet-vietnam.org/archives/news/in-depth-study-on-skills-demands-and-training-capacity-for-renewable-energy-sector-at-central-and-central-highland-areas-in-viet-nam","source":"GIZ / TVET Viet Nam","date":"2025-07-15","countries":["Vietnam"],"category":"vocational_needs","specialties":["wind power","solar power","energy storage","grid management","smart energy","operation and maintenance"],"summary":"A GIZ study on Vietnam's Central and Central Highlands renewable-energy sector found a mismatch between current workforce capabilities and the advanced technical and operational skills required for renewable-energy systems, especially O&M. This record is coded for Vietnam with a vocational needs focus. The source is GIZ / TVET Viet Nam, published on 2025-07-15, and the relevant specialties are wind power, solar power, energy storage, grid management, smart energy, operation and maintenance. Specific evidence recorded from the source includes: 1) The renewable-energy sector is expected to generate over 100,000 direct jobs. 2) Training institutions face outdated curricula, limited hands-on training, and weak industry partnerships. 3) High-demand areas include energy storage, grid management systems, and smart energy solutions. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The renewable-energy sector is expected to generate over 100,000 direct jobs.","Training institutions face outdated curricula, limited hands-on training, and weak industry partnerships.","High-demand areas include energy storage, grid management systems, and smart energy solutions."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"ADB Philippines youth employment strategy backs higher-skilled jobs","url":"https://seads.adb.org/articles/breaking-down-barriers-youth-employment","source":"Asian Development Bank / SEADS","date":"2025-09-17","countries":["Philippines"],"category":"vocational_needs","specialties":["analytics","AI","software development","security","business process management","entrepreneurship"],"summary":"ADB's Philippines support for 2024-2029 focuses on access to vocational training, technical skills, and entrepreneurship programs, with reforms for higher-skilled jobs in analytics, AI, software development and security, and business process management. This record is coded for Philippines with a vocational needs focus. The source is Asian Development Bank / SEADS, published on 2025-09-17, and the relevant specialties are analytics, AI, software development, security, business process management, entrepreneurship. Specific evidence recorded from the source includes: 1) ADB cites a $500 million policy-based loan supporting labor market reforms. 2) The approach targets vulnerable youth and greater women's workforce participation through TVET. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["ADB cites a $500 million policy-based loan supporting labor market reforms.","The approach targets vulnerable youth and greater women's workforce participation through TVET."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null}],"regional_platform":[{"title":"CATECP call for international technical courses reports large ASEAN training platform","url":"https://catecp.seameoted.org/news/136.html","source":"China-ASEAN Technical Education Cooperation Platform / SEAMEO TED","date":"2024-08-01","countries":["ASEAN","China"],"category":"regional_platform","specialties":["intelligent manufacturing","transportation and logistics","automobile repair","road and bridge"],"summary":"The China-ASEAN Technical Education Cooperation Platform reported cooperation with 11 Southeast Asian countries, more than 2,000 colleges and universities, over 200 courses, more than 40 majors, and direct training for more than 50,000 people. This record is coded for ASEAN, China with a regional platform focus. The source is China-ASEAN Technical Education Cooperation Platform / SEAMEO TED, published on 2024-08-01, and the relevant specialties are intelligent manufacturing, transportation and logistics, automobile repair, road and bridge. Specific evidence recorded from the source includes: 1) As of June 2024, CATECP covered more than 2,000 colleges and universities in 11 Southeast Asian countries. 2) Course areas include intelligent manufacturing, transportation and logistics, automobile repair, road and bridge. 3) In January 2024, CATECP co-organized a technical education cooperation summit in Phnom Penh with Cambodia's Ministry of Education, Youth and Sports. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["As of June 2024, CATECP covered more than 2,000 colleges and universities in 11 Southeast Asian countries.","Course areas include intelligent manufacturing, transportation and logistics, automobile repair, road and bridge.","In January 2024, CATECP co-organized a technical education cooperation summit in Phnom Penh with Cambodia's Ministry of Education, Youth and Sports."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 education+ initiative included e-commerce and agriculture vocational training","url":"https://govt.chinadaily.com.cn/s/202408/16/WS66e00395498ed2d7b7eb92bf/2024-china-asean-education-cooperation-week-to-feature-education-initiative.html","source":"China Daily / Guizhou","date":"2024-08-16","countries":["Laos","Vietnam","Cambodia","China"],"category":"regional_platform","specialties":["cross-border e-commerce","livestreaming","agriculture","e-sports"],"summary":"The 2024 China-ASEAN Education Cooperation Week's 'education+' initiative included cross-border e-commerce livestreaming and talent training for Laos, Vietnam, Cambodia and other countries, plus China-ASEAN agricultural vocational college cooperation training. This record is coded for Laos, Vietnam, Cambodia, China with a regional platform focus. The source is China Daily / Guizhou, published on 2024-08-16, and the relevant specialties are cross-border e-commerce, livestreaming, agriculture, e-sports. Specific evidence recorded from the source includes: 1) The event ran in Guiyang on 2024-08-20 to 2024-08-25. 2) Education+economy included cross-border e-commerce livestreaming talent cultivation. 3) Education+industry included agricultural vocational college international cooperation training. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The event ran in Guiyang on 2024-08-20 to 2024-08-25.","Education+economy included cross-border e-commerce livestreaming talent cultivation.","Education+industry included agricultural vocational college international cooperation training."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 China-ASEAN Education Cooperation Week opened in Guiyang","url":"https://en.moe.gov.cn/news/press_releases/202408/t20240823_1146878.html","source":"Chinese Ministry of Education","date":"2024-08-23","countries":["ASEAN","China"],"category":"regional_platform","specialties":["talent training","industry-education integration","teacher exchange"],"summary":"The 2024 China-ASEAN Education Cooperation Week opened in Guiyang on 2024-08-21, with more than 70 activities planned under the China-ASEAN Year of People-to-People Exchanges. This record is coded for ASEAN, China with a regional platform focus. The source is Chinese Ministry of Education, published on 2024-08-23, and the relevant specialties are talent training, industry-education integration, teacher exchange. Specific evidence recorded from the source includes: 1) Hosted by China's Ministry of Foreign Affairs, Ministry of Education, and Guizhou Provincial Government. 2) MOE emphasized personnel interaction, local participation, and practical cooperation. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Hosted by China's Ministry of Foreign Affairs, Ministry of Education, and Guizhou Provincial Government.","MOE emphasized personnel interaction, local participation, and practical cooperation."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2025 China-ASEAN Education Ministers' Dialogue proposed consultative mechanism","url":"https://en.moe.gov.cn/news/press_releases/202505/t20250518_1191065.html","source":"Chinese Ministry of Education","date":"2025-05-17","countries":["ASEAN","China"],"category":"regional_platform","specialties":["AI","digital education","industry-education integration","teacher exchange"],"summary":"At the 2025 China-ASEAN Education Ministers' Dialogue in Wuhan, China's education minister proposed a China-ASEAN Education Ministers Consultative Mechanism and priority areas including talent training, industry-education integration, AI, collaborative research, and teacher-student exchanges. This record is coded for ASEAN, China with a regional platform focus. The source is Chinese Ministry of Education, published on 2025-05-17, and the relevant specialties are AI, digital education, industry-education integration, teacher exchange. Specific evidence recorded from the source includes: 1) Officials from Cambodia, Thailand, Indonesia, Laos, Malaysia, and Singapore attended or delivered remarks. 2) The dialogue referenced the Vision and Action on China-ASEAN Education Cooperation and Development (2022-2030). For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Officials from Cambodia, Thailand, Indonesia, Laos, Malaysia, and Singapore attended or delivered remarks.","The dialogue referenced the Vision and Action on China-ASEAN Education Cooperation and Development (2022-2030)."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null}]},"articles":[{"title":"Cambodia-China University of Technology and Science inaugurated in Phnom Penh","url":"https://studychina.chinadaily.com.cn/s/202401/02/WS6593a151498ed2d7b7ea40cf/nanjing-vocational-university-of-industry-technology-establishes-vocational-school-in-cambodia.html","source":"China Daily / Study China","date":"2024-01-02","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["new energy power generation","automotive service","network engineering","e-commerce","modern logistics management","tourism management"],"summary":"Nanjing Vocational University of Industry Technology and the Federation of Khmer Chinese in Cambodia established Cambodia-China University of Technology and Science in Phnom Penh. It is described as China's first overseas applied technology university for vocational education and offers dual China-Cambodia degree pathways. This record is coded for Cambodia, China with a existing cooperation focus. The source is China Daily / Study China, published on 2024-01-02, and the relevant specialties are new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management. Specific evidence recorded from the source includes: 1) Inauguration ceremony held in Phnom Penh on 2023-12-20. 2) Six undergraduate majors listed: new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management. 3) MOE Vice Minister Wu Yan said China had established 19 overseas educational institutions and projects in Cambodia. 4) Jiangsu universities trained nearly 1,800 Cambodian students over the previous five years. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["Inauguration ceremony held in Phnom Penh on 2023-12-20.","Six undergraduate majors listed: new energy power generation, automotive service, network engineering, e-commerce, modern logistics management, tourism management.","MOE Vice Minister Wu Yan said China had established 19 overseas educational institutions and projects in Cambodia.","Jiangsu universities trained nearly 1,800 Cambodian students over the previous five years."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Myanmar renewable-energy TVET trainer programme used virtual TVET","url":"https://www.cpsctech.org/2024/02/cpsc-labtech-most-myanmar-highlight.html","source":"Colombo Plan Staff College","date":"2024-02-08","countries":["Myanmar"],"category":"vocational_needs","specialties":["renewable energy","green technology","digital TVET","trainer training"],"summary":"CPSC, Labtech, and Myanmar's Ministry of Science and Technology trained 30 lecturers, professors, and trainers in renewable-energy systems using virtual TVET. This record is coded for Myanmar with a vocational needs focus. The source is Colombo Plan Staff College, published on 2024-02-08, and the relevant specialties are renewable energy, green technology, digital TVET, trainer training. Specific evidence recorded from the source includes: 1) The online programme ran 2024-02-05 to 2024-02-08. 2) Topics included digital TVET frameworks, blended learning, LMS reporting, competency-based training, and modern training system troubleshooting. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The online programme ran 2024-02-05 to 2024-02-08.","Topics included digital TVET frameworks, blended learning, LMS reporting, competency-based training, and modern training system troubleshooting."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Thailand faces foundational and digital skills crisis","url":"https://www.worldbank.org/en/news/feature/2024/02/21/empowering-thailand-a-call-for-action-to-strengthen-foundational-skills","source":"World Bank / EEF Thailand","date":"2024-02-21","countries":["Thailand"],"category":"vocational_needs","specialties":["digital skills","literacy","socioemotional skills"],"summary":"The World Bank and Equitable Education Fund reported severe foundational skills gaps in Thailand: many youth and adults lack reading literacy, digital, and socioemotional skills needed for work and advanced training. This record is coded for Thailand with a vocational needs focus. The source is World Bank / EEF Thailand, published on 2024-02-21, and the relevant specialties are digital skills, literacy, socioemotional skills. Specific evidence recorded from the source includes: 1) Two-thirds of Thai youth and adults struggled to comprehend basic texts. 2) Three-quarters found basic online functions challenging. 3) The report argues that improving foundational skills could raise GDP by up to 20%. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Two-thirds of Thai youth and adults struggled to comprehend basic texts.","Three-quarters found basic online functions challenging.","The report argues that improving foundational skills could raise GDP by up to 20%."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Vietnam TVET reform targets green and digital transformation","url":"https://www.tvet-vietnam.org/programme-overview","source":"GIZ / TVET Viet Nam","date":"2024-03-01","countries":["Vietnam"],"category":"vocational_needs","specialties":["renewable energy","forestry","wastewater management","digital skills","green skills"],"summary":"Vietnam's TVET system is being oriented toward a socially just, green and digital transition. GIZ's 2024-2027 programme supports selected TVET institutes in environmental and digital skills for energy, forestry, and wastewater-related fields. This record is coded for Vietnam with a vocational needs focus. The source is GIZ / TVET Viet Nam, published on 2024-03-01, and the relevant specialties are renewable energy, forestry, wastewater management, digital skills, green skills. Specific evidence recorded from the source includes: 1) Programme Reform of TVET in Viet Nam III runs from 2024 to 2027. 2) Vietnam has fast-growing industry, service, and digital economy sectors but lacks skilled workers. 3) Needs include business cooperation, dual/cooperative training, inclusive access, digitalization, and greening TVET. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Programme Reform of TVET in Viet Nam III runs from 2024 to 2027.","Vietnam has fast-growing industry, service, and digital economy sectors but lacks skilled workers.","Needs include business cooperation, dual/cooperative training, inclusive access, digitalization, and greening TVET."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Philippine TVET study identifies construction, manufacturing, tourism barriers","url":"https://pids.gov.ph/publication/research-paper-series/issues-in-philippine-tvet-responsiveness-to-industry-demand-and-barriers-to-access-among-disadvantaged-youth","source":"Philippine Institute for Development Studies","date":"2024-03-11","countries":["Philippines"],"category":"vocational_needs","specialties":["construction","manufacturing","tourism","soft skills","trainer upgrading"],"summary":"PIDS assessed Philippine TVET responsiveness to industry demand through enterprise-based training providers in construction, manufacturing, and tourism. Issues include the poor image of construction training, outdated public training facilities, trainers lacking current industry know-how, and underdeveloped soft skills. This record is coded for Philippines with a vocational needs focus. The source is Philippine Institute for Development Studies, published on 2024-03-11, and the relevant specialties are construction, manufacturing, tourism, soft skills, trainer upgrading. Specific evidence recorded from the source includes: 1) Study code RPS 2024-03, published 2024-03-11. 2) Also examines barriers keeping NEET youth from vocational education. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Study code RPS 2024-03, published 2024-03-11.","Also examines barriers keeping NEET youth from vocational education."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Lao Railway Vocational and Technical College fills railway-technology education gap","url":"https://studychina.chinadaily.com.cn/s/202406/04/WS665e7ae9498ed2d7b7eaf8ca/lao-president-hails-china-laos-railway-cooperation.html","source":"China Daily","date":"2024-06-04","countries":["Laos","China"],"category":"existing_cooperation","specialties":["railway engineering","railway operation","railway maintenance"],"summary":"Lao President Thongloun Sisoulith called Lao Railway Vocational and Technical College a notable Laos-China cooperation achievement that fills a national gap in railway technology education. The Chinese-aided college in Vientiane opened in 2023 with support from Kunming Railway Vocational and Technical College. This record is coded for Laos, China with a existing cooperation focus. The source is China Daily, published on 2024-06-04, and the relevant specialties are railway engineering, railway operation, railway maintenance. Specific evidence recorded from the source includes: 1) The college is in Vientiane and is the first institution teaching railway engineering in Laos. 2) Kunming Railway Vocational and Technical College began setup assistance in 2023. 3) The Chinese expert team is expected to continue support for four years. 4) The project serves China-Laos railway construction and operations talent needs. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["The college is in Vientiane and is the first institution teaching railway engineering in Laos.","Kunming Railway Vocational and Technical College began setup assistance in 2023.","The Chinese expert team is expected to continue support for four years.","The project serves China-Laos railway construction and operations talent needs."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Malaysia added RM200 million for TVET in high-value sectors","url":"https://www.nst.com.my/amp/news/nation/2024/06/1060880/pm-announces-rm200-million-boost-tvet-programmes","source":"New Straits Times","date":"2024-06-08","countries":["Malaysia"],"category":"vocational_needs","specialties":["electric vehicles","cybersecurity","AI","advanced materials","integrated circuit design","wafer fabrication","farm mechanisation"],"summary":"Malaysia announced an additional RM200 million for TVET programmes to meet high-value sector demand, including EVs, cybersecurity, AI, advanced materials, electronics, engineering design, wafer fabrication, and agricultural automation. This record is coded for Malaysia with a vocational needs focus. The source is New Straits Times, published on 2024-06-08, and the relevant specialties are electric vehicles, cybersecurity, AI, advanced materials, integrated circuit design, wafer fabrication, farm mechanisation. Specific evidence recorded from the source includes: 1) The funds are channelled through the Skills Development Fund Corporation. 2) Sectors also include energy transition, high-value electrical and electronics, and agriculture. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The funds are channelled through the Skills Development Fund Corporation.","Sectors also include energy transition, high-value electrical and electronics, and agriculture."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 Chinese Language + Hydropower Vocational Skills training opened for Cambodia","url":"https://gxsdxy.cn/ywz/Admission/Training_Programs.htm","source":"Guangxi Vocational College of Water Resources and Electric Power","date":"2024-07-12","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["hydropower","water resources","Chinese language"],"summary":"GCWE and China Huadian Cambodia launched online training to cultivate overseas talent in water resources and hydropower and support Chinese enterprises in Cambodia. This record is coded for Cambodia, China with a existing cooperation focus. The source is Guangxi Vocational College of Water Resources and Electric Power, published on 2024-07-12, and the relevant specialties are hydropower, water resources, Chinese language. Specific evidence recorded from the source includes: 1) The opening ceremony was held on 2024-07-11. 2) The industry partner is Huadian Cambodia, linked to the Stung Russey Chrum Krom hydropower project. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The opening ceremony was held on 2024-07-11.","The industry partner is Huadian Cambodia, linked to the Stung Russey Chrum Krom hydropower project."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Thailand EV workforce development focuses on 150,000 skilled personnel","url":"https://www.nxpo.or.th/th/en/26656/","source":"Thailand NXPO","date":"2024-07-15","countries":["Thailand"],"category":"vocational_needs","specialties":["electric vehicles","battery systems","maintenance","charging systems","testing"],"summary":"Thailand's MHESI-NXPO and Rajamangala University of Technology Lanna planned EV-HRD workforce development, aiming to produce 150,000 skilled personnel in five years. This record is coded for Thailand with a vocational needs focus. The source is Thailand NXPO, published on 2024-07-15, and the relevant specialties are electric vehicles, battery systems, maintenance, charging systems, testing. Specific evidence recorded from the source includes: 1) EV-HRD is part of the 'MHESI for EV' policy together with EV-Transformation and EV-Innovation. 2) Thailand is positioning itself as an EV production hub and needs technicians for maintenance, batteries, charging, testing, and powertrain systems. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["EV-HRD is part of the 'MHESI for EV' policy together with EV-Transformation and EV-Innovation.","Thailand is positioning itself as an EV production hub and needs technicians for maintenance, batteries, charging, testing, and powertrain systems."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"CATECP call for international technical courses reports large ASEAN training platform","url":"https://catecp.seameoted.org/news/136.html","source":"China-ASEAN Technical Education Cooperation Platform / SEAMEO TED","date":"2024-08-01","countries":["ASEAN","China"],"category":"regional_platform","specialties":["intelligent manufacturing","transportation and logistics","automobile repair","road and bridge"],"summary":"The China-ASEAN Technical Education Cooperation Platform reported cooperation with 11 Southeast Asian countries, more than 2,000 colleges and universities, over 200 courses, more than 40 majors, and direct training for more than 50,000 people. This record is coded for ASEAN, China with a regional platform focus. The source is China-ASEAN Technical Education Cooperation Platform / SEAMEO TED, published on 2024-08-01, and the relevant specialties are intelligent manufacturing, transportation and logistics, automobile repair, road and bridge. Specific evidence recorded from the source includes: 1) As of June 2024, CATECP covered more than 2,000 colleges and universities in 11 Southeast Asian countries. 2) Course areas include intelligent manufacturing, transportation and logistics, automobile repair, road and bridge. 3) In January 2024, CATECP co-organized a technical education cooperation summit in Phnom Penh with Cambodia's Ministry of Education, Youth and Sports. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["As of June 2024, CATECP covered more than 2,000 colleges and universities in 11 Southeast Asian countries.","Course areas include intelligent manufacturing, transportation and logistics, automobile repair, road and bridge.","In January 2024, CATECP co-organized a technical education cooperation summit in Phnom Penh with Cambodia's Ministry of Education, Youth and Sports."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 education+ initiative included e-commerce and agriculture vocational training","url":"https://govt.chinadaily.com.cn/s/202408/16/WS66e00395498ed2d7b7eb92bf/2024-china-asean-education-cooperation-week-to-feature-education-initiative.html","source":"China Daily / Guizhou","date":"2024-08-16","countries":["Laos","Vietnam","Cambodia","China"],"category":"regional_platform","specialties":["cross-border e-commerce","livestreaming","agriculture","e-sports"],"summary":"The 2024 China-ASEAN Education Cooperation Week's 'education+' initiative included cross-border e-commerce livestreaming and talent training for Laos, Vietnam, Cambodia and other countries, plus China-ASEAN agricultural vocational college cooperation training. This record is coded for Laos, Vietnam, Cambodia, China with a regional platform focus. The source is China Daily / Guizhou, published on 2024-08-16, and the relevant specialties are cross-border e-commerce, livestreaming, agriculture, e-sports. Specific evidence recorded from the source includes: 1) The event ran in Guiyang on 2024-08-20 to 2024-08-25. 2) Education+economy included cross-border e-commerce livestreaming talent cultivation. 3) Education+industry included agricultural vocational college international cooperation training. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The event ran in Guiyang on 2024-08-20 to 2024-08-25.","Education+economy included cross-border e-commerce livestreaming talent cultivation.","Education+industry included agricultural vocational college international cooperation training."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2024 China-ASEAN Education Cooperation Week opened in Guiyang","url":"https://en.moe.gov.cn/news/press_releases/202408/t20240823_1146878.html","source":"Chinese Ministry of Education","date":"2024-08-23","countries":["ASEAN","China"],"category":"regional_platform","specialties":["talent training","industry-education integration","teacher exchange"],"summary":"The 2024 China-ASEAN Education Cooperation Week opened in Guiyang on 2024-08-21, with more than 70 activities planned under the China-ASEAN Year of People-to-People Exchanges. This record is coded for ASEAN, China with a regional platform focus. The source is Chinese Ministry of Education, published on 2024-08-23, and the relevant specialties are talent training, industry-education integration, teacher exchange. Specific evidence recorded from the source includes: 1) Hosted by China's Ministry of Foreign Affairs, Ministry of Education, and Guizhou Provincial Government. 2) MOE emphasized personnel interaction, local participation, and practical cooperation. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Hosted by China's Ministry of Foreign Affairs, Ministry of Education, and Guizhou Provincial Government.","MOE emphasized personnel interaction, local participation, and practical cooperation."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"China-Cambodia Institute of Modern Craftsmanship of Green Energy recognized as excellent partner","url":"https://www.gxsdxy.cn/ywz/info/1071/2092.htm","source":"Guangxi Vocational College of Water Resources and Electric Power","date":"2024-08-25","countries":["Cambodia","China"],"category":"existing_cooperation","specialties":["green energy","hydropower","Chinese language + vocational skills"],"summary":"Guangxi Vocational College of Water Resources and Electric Power, Prek Leap National Institute of Agriculture in Cambodia, and China Huadian's Cambodian hydropower project were selected as 2024 China-ASEAN Vocational Education Excellent Cooperation Partners. This record is coded for Cambodia, China with a existing cooperation focus. The source is Guangxi Vocational College of Water Resources and Electric Power, published on 2024-08-25, and the relevant specialties are green energy, hydropower, Chinese language + vocational skills. Specific evidence recorded from the source includes: 1) Annual conference of the China-ASEAN Vocational Education Consortium was held in Guiyang on 2024-08-22. 2) The project is the China-Cambodia Institute of Modern Craftsmanship of Green Energy. 3) The partners plan talent cultivation and 'Chinese Language + Hydropower Vocational Skills' training. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates.","evidence":["Annual conference of the China-ASEAN Vocational Education Consortium was held in Guiyang on 2024-08-22.","The project is the China-Cambodia Institute of Modern Craftsmanship of Green Energy.","The partners plan talent cultivation and 'Chinese Language + Hydropower Vocational Skills' training."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"OECD says Malaysia's TVET needs streamlining and stronger alignment with firm needs","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2024_e45ca31a-en/full-report/towards-more-inclusive-growth_02760e13.html","source":"OECD","date":"2024-08-27","countries":["Malaysia"],"category":"vocational_needs","specialties":["industry alignment","quality assurance","digital skills","green skills"],"summary":"OECD's Malaysia 2024 survey says TVET effectiveness depends on delivering skills that match firms' needs and are directly applicable at work; the system is fragmented across many ministries with confusing certifications and accreditations. This record is coded for Malaysia with a vocational needs focus. The source is OECD, published on 2024-08-27, and the relevant specialties are industry alignment, quality assurance, digital skills, green skills. Specific evidence recorded from the source includes: 1) Ten ministries oversee various TVET programmes. 2) OECD recommends reorganization and streamlining, plus better programme ratings and registers. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Ten ministries oversee various TVET programmes.","OECD recommends reorganization and streamlining, plus better programme ratings and registers."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Cambodian education official says China's VET system is a valuable model","url":"https://english.news.cn/20241114/b1403227636e41b8bcd5bd9c661c7825/c.html","source":"Xinhua","date":"2024-11-14","countries":["Cambodia","China"],"category":"vocational_needs","specialties":["construction","engineering","logistics","manufacturing","services"],"summary":"Om Romny, secretary of state at Cambodia's Ministry of Education, Youth and Sport, said Cambodia faces limited training facilities, outdated curricula, and mismatch between skills taught and market demand, while BRI projects raise demand for skilled labor in construction, engineering, and logistics. This record is coded for Cambodia, China with a vocational needs focus. The source is Xinhua, published on 2024-11-14, and the relevant specialties are construction, engineering, logistics, manufacturing, services. Specific evidence recorded from the source includes: 1) Cambodia aims to become a regional manufacturing and service hub. 2) Needs include training infrastructure, updated curricula, rural and urban access, scholarships, and training exchanges. 3) BRI infrastructure projects increase demand for construction, engineering, and logistics skills. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Cambodia aims to become a regional manufacturing and service hub.","Needs include training infrastructure, updated curricula, rural and urban access, scholarships, and training exchanges.","BRI infrastructure projects increase demand for construction, engineering, and logistics skills."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"China-Laos Chuyi Academy opens in Vientiane","url":"https://enghunan.gov.cn/hneng/News/Localnews/202411/t20241116_33500363.html","source":"Hunan Provincial Government / Chinanews","date":"2024-11-16","countries":["Laos","China"],"category":"existing_cooperation","specialties":["e-commerce","vocational standards","teacher training"],"summary":"Changsha Social Work College and Pakpasak Technical College opened the China-Laos Chuyi Academy in Vientiane with a first cohort of 45 Lao students and a new e-commerce specialty. This record is coded for Laos, China with a existing cooperation focus. The source is Hunan Provincial Government / Chinanews, published on 2024-11-16, and the relevant specialties are e-commerce, vocational standards, teacher training. Specific evidence recorded from the source includes: 1) First batch: 45 Lao students. 2) The cooperation focuses on a new e-commerce specialty. 3) Changsha Social Work College has worked with Laos since 2018. 4) It helped Laos develop three national-level vocational standards, two professional standards, 32 curriculum standards, and trained 150 Lao vocational teachers. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["First batch: 45 Lao students.","The cooperation focuses on a new e-commerce specialty.","Changsha Social Work College has worked with Laos since 2018.","It helped Laos develop three national-level vocational standards, two professional standards, 32 curriculum standards, and trained 150 Lao vocational teachers."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Indonesia 2024 OECD survey calls for local industry role in vocational training","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-indonesia-2024_de87555a-en/full-report/accelerating-growth-and-attaining-socioeconomic-convergence_02e70f46.html","source":"OECD","date":"2024-11-26","countries":["Indonesia"],"category":"vocational_needs","specialties":["digital skills","information-processing skills","green transition","local workforce needs"],"summary":"OECD's Indonesia 2024 survey says adult skills are low, vocational training is a high share of secondary schooling but does not always match local workforce needs, and local governments and businesses should have greater say in defining training needs. This record is coded for Indonesia with a vocational needs focus. The source is OECD, published on 2024-11-26, and the relevant specialties are digital skills, information-processing skills, green transition, local workforce needs. Specific evidence recorded from the source includes: 1) Youth unemployment in 2023 remained above some ASEAN peers. 2) PIAAC data show low adult information-processing skills. 3) OECD recommends skill anticipation exercises in priority sectors and a central list of high-demand strategic occupations. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Youth unemployment in 2023 remained above some ASEAN peers.","PIAAC data show low adult information-processing skills.","OECD recommends skill anticipation exercises in priority sectors and a central list of high-demand strategic occupations."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Myanmar industrial training center offers machinery, CAD/CAM, electrician, electronics, foundry courses","url":"https://mdn.gov.mm/en/itc-thagaya-offer-industrial-skills-training-may","source":"Myanmar Digital News","date":"2025-02-20","countries":["Myanmar"],"category":"vocational_needs","specialties":["machinery","CAD/CAM","electrician","electronics","foundry"],"summary":"No. 3 Industrial Training Center Thagaya announced one-year industrial skills training from May 2025 to April 2026 with 30 percent theory and 70 percent practical learning. This record is coded for Myanmar with a vocational needs focus. The source is Myanmar Digital News, published on 2025-02-20, and the relevant specialties are machinery, CAD/CAM, electrician, electronics, foundry. Specific evidence recorded from the source includes: 1) Courses listed: Machinery, CAD/CAM, Electrician, Electronic, and Foundry. 2) Each course is capped at 30 trainees. 3) Trainees receive dormitory, food stipend, uniforms, and certificates. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Courses listed: Machinery, CAD/CAM, Electrician, Electronic, and Foundry.","Each course is capped at 30 trainees.","Trainees receive dormitory, food stipend, uniforms, and certificates."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"2025 China-ASEAN Education Ministers' Dialogue proposed consultative mechanism","url":"https://en.moe.gov.cn/news/press_releases/202505/t20250518_1191065.html","source":"Chinese Ministry of Education","date":"2025-05-17","countries":["ASEAN","China"],"category":"regional_platform","specialties":["AI","digital education","industry-education integration","teacher exchange"],"summary":"At the 2025 China-ASEAN Education Ministers' Dialogue in Wuhan, China's education minister proposed a China-ASEAN Education Ministers Consultative Mechanism and priority areas including talent training, industry-education integration, AI, collaborative research, and teacher-student exchanges. This record is coded for ASEAN, China with a regional platform focus. The source is Chinese Ministry of Education, published on 2025-05-17, and the relevant specialties are AI, digital education, industry-education integration, teacher exchange. Specific evidence recorded from the source includes: 1) Officials from Cambodia, Thailand, Indonesia, Laos, Malaysia, and Singapore attended or delivered remarks. 2) The dialogue referenced the Vision and Action on China-ASEAN Education Cooperation and Development (2022-2030). For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["Officials from Cambodia, Thailand, Indonesia, Laos, Malaysia, and Singapore attended or delivered remarks.","The dialogue referenced the Vision and Action on China-ASEAN Education Cooperation and Development (2022-2030)."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"Vietnam renewable-energy skills study highlights O&M gap","url":"https://www.tvet-vietnam.org/archives/news/in-depth-study-on-skills-demands-and-training-capacity-for-renewable-energy-sector-at-central-and-central-highland-areas-in-viet-nam","source":"GIZ / TVET Viet Nam","date":"2025-07-15","countries":["Vietnam"],"category":"vocational_needs","specialties":["wind power","solar power","energy storage","grid management","smart energy","operation and maintenance"],"summary":"A GIZ study on Vietnam's Central and Central Highlands renewable-energy sector found a mismatch between current workforce capabilities and the advanced technical and operational skills required for renewable-energy systems, especially O&M. This record is coded for Vietnam with a vocational needs focus. The source is GIZ / TVET Viet Nam, published on 2025-07-15, and the relevant specialties are wind power, solar power, energy storage, grid management, smart energy, operation and maintenance. Specific evidence recorded from the source includes: 1) The renewable-energy sector is expected to generate over 100,000 direct jobs. 2) Training institutions face outdated curricula, limited hands-on training, and weak industry partnerships. 3) High-demand areas include energy storage, grid management systems, and smart energy solutions. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["The renewable-energy sector is expected to generate over 100,000 direct jobs.","Training institutions face outdated curricula, limited hands-on training, and weak industry partnerships.","High-demand areas include energy storage, grid management systems, and smart energy solutions."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null},{"title":"ADB Philippines youth employment strategy backs higher-skilled jobs","url":"https://seads.adb.org/articles/breaking-down-barriers-youth-employment","source":"Asian Development Bank / SEADS","date":"2025-09-17","countries":["Philippines"],"category":"vocational_needs","specialties":["analytics","AI","software development","security","business process management","entrepreneurship"],"summary":"ADB's Philippines support for 2024-2029 focuses on access to vocational training, technical skills, and entrepreneurship programs, with reforms for higher-skilled jobs in analytics, AI, software development and security, and business process management. This record is coded for Philippines with a vocational needs focus. The source is Asian Development Bank / SEADS, published on 2025-09-17, and the relevant specialties are analytics, AI, software development, security, business process management, entrepreneurship. Specific evidence recorded from the source includes: 1) ADB cites a $500 million policy-based loan supporting labor market reforms. 2) The approach targets vulnerable youth and greater women's workforce participation through TVET. For China-ASEAN vocational education planning, the entry should be read as a practical lead rather than only a news item: it identifies the date, source organization, URL, institutional owners, sector demand, student or worker numbers where available, and the skills content that could be converted into a joint standard, training-of-trainers activity, overseas college, internship route, or enterprise classroom. Where budgets or student numbers are not available in the source, the record preserves the exact named figures that are available and leaves funding unspecified instead of inventing estimates. The cooperation value is strongest when the partners use the cited URL to verify the original wording, then map each specialty to local occupational standards, equipment availability, teacher capacity, enterprise demand, and graduate placement data before launching a class or signing a memorandum of understanding.","evidence":["ADB cites a $500 million policy-based loan supporting labor market reforms.","The approach targets vulnerable youth and greater women's workforce participation through TVET."],"institutions":[],"programs":[],"curriculum_details":[],"figures":[],"quote":"","scraped":false,"search_query":null}]};
-    const EXISTING_COUNTRIES = ["Cambodia", "Laos"];
-    const OPPORTUNITY_COUNTRIES = ["Vietnam", "Thailand", "Myanmar", "Malaysia", "Indonesia", "Philippines"];
+    // Country config
+    const countryConfig = {
+      'Cambodia': { flag: '🇰🇭', name: '柬埔寨' },
+      'Laos': { flag: '🇱🇦', name: '老挝' },
+      'Vietnam': { flag: '🇻🇳', name: '越南' },
+      'Thailand': { flag: '🇹🇭', name: '泰国' },
+      'Myanmar': { flag: '🇲🇲', name: '缅甸' },
+      'Malaysia': { flag: '🇲🇾', name: '马来西亚' },
+      'Indonesia': { flag: '🇮🇩', name: '印度尼西亚' },
+      'Philippines': { flag: '🇵🇭', name: '菲律宾' },
+      'ASEAN': { flag: '🌏', name: '区域合作' }
+    };
 
-    const recommendations = [
+    // Tag labels
+    const tagLabels = {
+      'existing_cooperation': '合作项目',
+      'vocational_needs': '政策动态',
+      'regional_platform': '平台动态'
+    };
+
+    // Article data
+    const articles = [
       {
-        title: "把柬埔寨和老挝作为既有合作示范样板",
-        body: "围绕已落地的大学、铁路学院、绿色能源工坊和楚怡学院，整理联合标准、师资培训和企业课堂的可复制清单。",
-        priority: "Launchpad"
+        "title": "Cambodia-China University of Technology and Science inaugurated in Phnom Penh",
+        "url": "https://studychina.chinadaily.com.cn/s/202401/02/WS6593a151498ed2d7b7ea40cf/nanjing-vocational-university-of-industry-technology-establishes-vocational-school-in-cambodia.html",
+        "source": "China Daily / Study China",
+        "date": "2024-01-02",
+        "countries": ["Cambodia", "China"],
+        "category": "existing_cooperation",
+        "specialties": ["new energy power generation", "automotive service", "network engineering", "e-commerce", "modern logistics management", "tourism management"],
+        "summary": "Nanjing Vocational University of Industry Technology and the Federation of Khmer Chinese in Cambodia established Cambodia-China University of Technology and Science in Phnom Penh. It is described as China's first overseas applied technology university for vocational education and offers dual China-Cambodia degree pathways."
       },
       {
-        title: "优先布局绿色能源、铁路与智能制造技能包",
-        body: "柬埔寨水电/新能源、老挝铁路、越南可再生能源运维、泰国电动车和马来西亚高价值制造构成最清晰的跨国课程组合。",
-        priority: "High"
+        "title": "Myanmar renewable-energy TVET trainer programme used virtual TVET",
+        "url": "https://www.cpsctech.org/2024/02/cpsc-labtech-most-myanmar-highlight.html",
+        "source": "Colombo Plan Staff College",
+        "date": "2024-02-08",
+        "countries": ["Myanmar"],
+        "category": "vocational_needs",
+        "specialties": ["renewable energy", "green technology", "digital TVET", "trainer training"],
+        "summary": "CPSC, Labtech, and Myanmar's Ministry of Science and Technology trained 30 lecturers, professors, and trainers in renewable-energy systems using virtual TVET."
       },
       {
-        title: "用区域平台承接多国短训和课程输出",
-        body: "CATECP、教育+项目和中国-东盟教育交流周可作为课程发布、培训名额组织和伙伴招募的固定渠道。",
-        priority: "Network"
+        "title": "Thailand faces foundational and digital skills crisis",
+        "url": "https://www.worldbank.org/en/news/feature/2024/02/21/empowering-thailand-a-call-for-action-to-strengthen-foundational-skills",
+        "source": "World Bank / EEF Thailand",
+        "date": "2024-02-21",
+        "countries": ["Thailand"],
+        "category": "vocational_needs",
+        "specialties": ["digital skills", "literacy", "socioemotional skills"],
+        "summary": "The World Bank and Equitable Education Fund reported severe foundational skills gaps in Thailand: many youth and adults lack reading literacy, digital, and socioemotional skills needed for work and advanced training."
       },
       {
-        title: "对机会型国家先做需求验证",
-        body: "越南、泰国、马来西亚、菲律宾等记录更偏产业缺口，应先用企业访谈和岗位画像确认培训模块，再推进院校合作。",
-        priority: "Validate"
+        "title": "Vietnam TVET reform targets green and digital transformation",
+        "url": "https://www.tvet-vietnam.org/programme-overview",
+        "source": "GIZ / TVET Viet Nam",
+        "date": "2024-03-01",
+        "countries": ["Vietnam"],
+        "category": "vocational_needs",
+        "specialties": ["renewable energy", "forestry", "wastewater management", "digital skills", "green skills"],
+        "summary": "Vietnam's TVET system is being oriented toward a socially just, green and digital transition. GIZ's 2024-2027 programme supports selected TVET institutes in environmental and digital skills for energy, forestry, and wastewater-related fields."
       },
       {
-        title: "建立数据更新和证据分级机制",
-        body: "保留发布日期、机构、数字证据和原始URL，并区分官方项目报道、政策研究和需求报告，便于每周滚动更新。",
-        priority: "System"
+        "title": "Philippine TVET study identifies construction, manufacturing, tourism barriers",
+        "url": "https://pids.gov.ph/publication/research-paper-series/issues-in-philippine-tvet-responsiveness-to-industry-demand-and-barriers-to-access-among-disadvantaged-youth",
+        "source": "Philippine Institute for Development Studies",
+        "date": "2024-03-11",
+        "countries": ["Philippines"],
+        "category": "vocational_needs",
+        "specialties": ["construction", "manufacturing", "tourism", "soft skills", "trainer upgrading"],
+        "summary": "PIDS assessed Philippine TVET responsiveness to industry demand through enterprise-based training providers in construction, manufacturing, and tourism."
+      },
+      {
+        "title": "Lao Railway Vocational and Technical College fills railway-technology education gap",
+        "url": "https://studychina.chinadaily.com.cn/s/202406/04/WS665e7ae9498ed2d7b7eaf8ca/lao-president-hails-china-laos-railway-cooperation.html",
+        "source": "China Daily",
+        "date": "2024-06-04",
+        "countries": ["Laos", "China"],
+        "category": "existing_cooperation",
+        "specialties": ["railway engineering", "railway operation", "railway maintenance"],
+        "summary": "Lao President Thongloun Sisoulith called Lao Railway Vocational and Technical College a notable Laos-China cooperation achievement that fills a national gap in railway technology education."
+      },
+      {
+        "title": "Malaysia added RM200 million for TVET in high-value sectors",
+        "url": "https://www.nst.com.my/amp/news/nation/2024/06/1060880/pm-announces-rm200-million-boost-tvet-programmes",
+        "source": "New Straits Times",
+        "date": "2024-06-08",
+        "countries": ["Malaysia"],
+        "category": "vocational_needs",
+        "specialties": ["electric vehicles", "cybersecurity", "AI", "advanced materials", "integrated circuit design", "wafer fabrication", "farm mechanisation"],
+        "summary": "Malaysia announced an additional RM200 million for TVET programmes to meet high-value sector demand, including EVs, cybersecurity, AI, advanced materials, electronics, engineering design, wafer fabrication, and agricultural automation."
+      },
+      {
+        "title": "2024 Chinese Language + Hydropower Vocational Skills training opened for Cambodia",
+        "url": "https://gxsdxy.cn/ywz/Admission/Training_Programs.htm",
+        "source": "Guangxi Vocational College of Water Resources and Electric Power",
+        "date": "2024-07-12",
+        "countries": ["Cambodia", "China"],
+        "category": "existing_cooperation",
+        "specialties": ["hydropower", "water resources", "Chinese language"],
+        "summary": "GCWE and China Huadian Cambodia launched online training to cultivate overseas talent in water resources and hydropower and support Chinese enterprises in Cambodia."
+      },
+      {
+        "title": "Thailand EV workforce development focuses on 150,000 skilled personnel",
+        "url": "https://www.nxpo.or.th/th/en/26656/",
+        "source": "Thailand NXPO",
+        "date": "2024-07-15",
+        "countries": ["Thailand"],
+        "category": "vocational_needs",
+        "specialties": ["electric vehicles", "battery systems", "maintenance", "charging systems", "testing"],
+        "summary": "Thailand's MHESI-NXPO and Rajamangala University of Technology Lanna planned EV-HRD workforce development, aiming to produce 150,000 skilled personnel in five years."
+      },
+      {
+        "title": "CATECP call for international technical courses reports large ASEAN training platform",
+        "url": "https://catecp.seameoted.org/news/136.html",
+        "source": "China-ASEAN Technical Education Cooperation Platform / SEAMEO TED",
+        "date": "2024-08-01",
+        "countries": ["ASEAN", "China"],
+        "category": "regional_platform",
+        "specialties": ["intelligent manufacturing", "transportation and logistics", "automobile repair", "road and bridge"],
+        "summary": "The China-ASEAN Technical Education Cooperation Platform reported cooperation with 11 Southeast Asian countries, more than 2,000 colleges and universities, over 200 courses, more than 40 majors, and direct training for more than 50,000 people."
+      },
+      {
+        "title": "2024 education+ initiative included e-commerce and agriculture vocational training",
+        "url": "https://govt.chinadaily.com.cn/s/202408/16/WS66e00395498ed2d7b7eb92bf/2024-china-asean-education-cooperation-week-to-feature-education-initiative.html",
+        "source": "China Daily / Guizhou",
+        "date": "2024-08-16",
+        "countries": ["Laos", "Vietnam", "Cambodia", "China"],
+        "category": "regional_platform",
+        "specialties": ["cross-border e-commerce", "livestreaming", "agriculture", "e-sports"],
+        "summary": "The 2024 China-ASEAN Education Cooperation Week's 'education+' initiative included cross-border e-commerce livestreaming and talent training for Laos, Vietnam, Cambodia and other countries."
+      },
+      {
+        "title": "2024 China-ASEAN Education Cooperation Week opened in Guiyang",
+        "url": "https://en.moe.gov.cn/news/press_releases/202408/t20240823_1146878.html",
+        "source": "Chinese Ministry of Education",
+        "date": "2024-08-23",
+        "countries": ["ASEAN", "China"],
+        "category": "regional_platform",
+        "specialties": ["talent training", "industry-education integration", "teacher exchange"],
+        "summary": "The 2024 China-ASEAN Education Cooperation Week opened in Guiyang with more than 70 activities planned under the China-ASEAN Year of People-to-People Exchanges."
+      },
+      {
+        "title": "China-Cambodia Institute of Modern Craftsmanship of Green Energy recognized as excellent partner",
+        "url": "https://www.gxsdxy.cn/ywz/info/1071/2092.htm",
+        "source": "Guangxi Vocational College of Water Resources and Electric Power",
+        "date": "2024-08-25",
+        "countries": ["Cambodia", "China"],
+        "category": "existing_cooperation",
+        "specialties": ["green energy", "hydropower", "Chinese language + vocational skills"],
+        "summary": "Guangxi Vocational College of Water Resources and Electric Power, Prek Leap National Institute of Agriculture in Cambodia, and China Huadian's Cambodian hydropower project were selected as 2024 China-ASEAN Vocational Education Excellent Cooperation Partners."
+      },
+      {
+        "title": "OECD says Malaysia's TVET needs streamlining and stronger alignment with firm needs",
+        "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2024_e45ca31a-en/full-report/towards-more-inclusive-growth_02760e13.html",
+        "source": "OECD",
+        "date": "2024-08-27",
+        "countries": ["Malaysia"],
+        "category": "vocational_needs",
+        "specialties": ["industry alignment", "quality assurance", "digital skills", "green skills"],
+        "summary": "OECD's Malaysia 2024 survey says TVET effectiveness depends on delivering skills that match firms' needs and are directly applicable at work."
+      },
+      {
+        "title": "Cambodian education official says China's VET system is a valuable model",
+        "url": "https://english.news.cn/20241114/b1403227636e41b8bcd5bd9c661c7825/c.html",
+        "source": "Xinhua",
+        "date": "2024-11-14",
+        "countries": ["Cambodia", "China"],
+        "category": "vocational_needs",
+        "specialties": ["construction", "engineering", "logistics", "manufacturing", "services"],
+        "summary": "Om Romny, secretary of state at Cambodia's Ministry of Education, said Cambodia faces limited training facilities, outdated curricula, and mismatch between skills taught and market demand."
+      },
+      {
+        "title": "China-Laos Chuyi Academy opens in Vientiane",
+        "url": "https://enghunan.gov.cn/hneng/News/Localnews/202411/t20241116_33500363.html",
+        "source": "Hunan Provincial Government / Chinanews",
+        "date": "2024-11-16",
+        "countries": ["Laos", "China"],
+        "category": "existing_cooperation",
+        "specialties": ["e-commerce", "vocational standards", "teacher training"],
+        "summary": "Changsha Social Work College and Pakpasak Technical College opened the China-Laos Chuyi Academy in Vientiane with a first cohort of 45 Lao students and a new e-commerce specialty."
+      },
+      {
+        "title": "Indonesia 2024 OECD survey calls for local industry role in vocational training",
+        "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-indonesia-2024_de87555a-en/full-report/accelerating-growth-and-attaining-socioeconomic-convergence_02e70f46.html",
+        "source": "OECD",
+        "date": "2024-11-26",
+        "countries": ["Indonesia"],
+        "category": "vocational_needs",
+        "specialties": ["digital skills", "information-processing skills", "green transition", "local workforce needs"],
+        "summary": "OECD's Indonesia 2024 survey says adult skills are low, vocational training is a high share of secondary schooling but does not always match local workforce needs."
+      },
+      {
+        "title": "Myanmar industrial training center offers machinery, CAD/CAM, electrician, electronics, foundry courses",
+        "url": "https://mdn.gov.mm/en/itc-thagaya-offer-industrial-skills-training-may",
+        "source": "Myanmar Digital News",
+        "date": "2025-02-20",
+        "countries": ["Myanmar"],
+        "category": "vocational_needs",
+        "specialties": ["machinery", "CAD/CAM", "electrician", "electronics", "foundry"],
+        "summary": "No. 3 Industrial Training Center Thagaya announced one-year industrial skills training from May 2025 to April 2026 with 30 percent theory and 70 percent practical learning."
+      },
+      {
+        "title": "2025 China-ASEAN Education Ministers' Dialogue proposed consultative mechanism",
+        "url": "https://en.moe.gov.cn/news/press_releases/202505/t20250518_1191065.html",
+        "source": "Chinese Ministry of Education",
+        "date": "2025-05-17",
+        "countries": ["ASEAN", "China"],
+        "category": "regional_platform",
+        "specialties": ["AI", "digital education", "industry-education integration", "teacher exchange"],
+        "summary": "At the 2025 China-ASEAN Education Ministers' Dialogue in Wuhan, China's education minister proposed a China-ASEAN Education Ministers Consultative Mechanism."
+      },
+      {
+        "title": "Vietnam renewable-energy skills study highlights O&M gap",
+        "url": "https://www.tvet-vietnam.org/archives/news/in-depth-study-on-skills-demands-and-training-capacity-for-renewable-energy-sector-at-central-and-central-highland-areas-in-viet-nam",
+        "source": "GIZ / TVET Viet Nam",
+        "date": "2025-07-15",
+        "countries": ["Vietnam"],
+        "category": "vocational_needs",
+        "specialties": ["wind power", "solar power", "energy storage", "grid management", "smart energy", "operation and maintenance"],
+        "summary": "A GIZ study on Vietnam's Central and Central Highlands renewable-energy sector found a mismatch between current workforce capabilities and the advanced technical and operational skills required for renewable-energy systems."
+      },
+      {
+        "title": "ADB Philippines youth employment strategy backs higher-skilled jobs",
+        "url": "https://seads.adb.org/articles/breaking-down-barriers-youth-employment",
+        "source": "Asian Development Bank / SEADS",
+        "date": "2025-09-17",
+        "countries": ["Philippines"],
+        "category": "vocational_needs",
+        "specialties": ["analytics", "AI", "software development", "security", "business process management", "entrepreneurship"],
+        "summary": "ADB's Philippines support for 2024-2029 focuses on access to vocational training, technical skills, and entrepreneurship programs, with reforms for higher-skilled jobs."
       }
     ];
 
-    const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      "\"": "&quot;",
-      "'": "&#39;"
-    }[char]));
+    // Sort by date descending
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    function formatDate(value, options = {}) {
-      if (!value) return "Undated";
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return esc(value);
-      return new Intl.DateTimeFormat("en-GB", {
-        year: "numeric",
-        month: options.short ? "short" : "long",
-        day: "2-digit",
-        timeZone: "Asia/Shanghai"
-      }).format(date);
+    // Get week number
+    function getWeekNumber(d) {
+      d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+      d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+      var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+      var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+      return weekNo;
     }
 
-    function freshnessLabel(value) {
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return "Data freshness unknown";
-      const diff = Date.now() - date.getTime();
-      const days = Math.max(0, Math.floor(diff / 86400000));
-      if (days === 0) return "Updated today";
-      if (days === 1) return "Updated 1 day ago";
-      if (days < 8) return `Updated ${days} days ago`;
-      if (days < 32) return `Updated ${Math.floor(days / 7)} weeks ago`;
-      return `Updated ${Math.floor(days / 30)} months ago`;
+    // Format date
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
-    function countryArticles(data, country) {
-      return (data.articles || [])
-        .filter(item => (item.countries || []).includes(country))
-        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+    // Calculate reading time
+    function getReadingTime(text) {
+      const words = text.split(/\s+/).length;
+      const minutes = Math.ceil(words / 200);
+      return `${minutes}分钟阅读`;
     }
 
-    function tagList(tags, limit) {
-      return (tags || []).slice(0, limit).map(tag => `<span class="tag">${esc(tag)}</span>`).join("");
+    // Get country order
+    function getCountryOrder(country) {
+      const order = ['Cambodia', 'Laos', 'Vietnam', 'Thailand', 'Myanmar', 'Malaysia', 'Indonesia', 'Philippines', 'ASEAN'];
+      return order.indexOf(country);
     }
 
-    function renderEntry(item, open = false) {
-      const evidence = (item.evidence || []).map(line => `<li>${esc(line)}</li>`).join("");
-      return `
-        <details class="entry" ${open ? "open" : ""}>
-          <summary>
-            <div class="entry-title-row">
-              <span class="date-chip">${formatDate(item.date, { short: true })}</span>
-              <div>
-                <h3 class="entry-title">${esc(item.title)}</h3>
-                <div class="source-line">${esc(item.source)} · ${(item.countries || []).map(esc).join(", ")}</div>
-              </div>
-              <span class="expand-icon" aria-hidden="true">+</span>
-            </div>
-          </summary>
-          <div class="entry-body">
-            <div>${tagList(item.specialties, 10)}</div>
-            <p>${esc(item.summary)}</p>
-            ${evidence ? `<div><p class="entry-section-title">Evidence</p><ul class="evidence-list">${evidence}</ul></div>` : ""}
-            <div>
-              <p class="entry-section-title">Source URL</p>
-              <a class="url-link" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.url)}</a>
-            </div>
-          </div>
-        </details>
-      `;
-    }
+    // Initialize
+    function init() {
+      // Header meta
+      const now = new Date();
+      document.getElementById('current-date').textContent = formatDate(now);
+      document.getElementById('week-number').textContent = getWeekNumber(now);
+      document.getElementById('article-count').textContent = articles.length;
+      document.getElementById('last-updated').textContent = formatDate(now);
 
-    function renderCountry(data, country, tone) {
-      const profile = data.country_profiles?.[country] || {};
-      const articles = countryArticles(data, country);
-      const status = tone === "amber" ? "Existing cooperation" : "Needs / opportunities";
-      return `
-        <details class="country" data-tone="${tone}" ${tone === "amber" ? "open" : ""}>
-          <summary>
-            <div class="country-header">
-              <div>
-                <span class="country-name">${esc(country)}</span>
-                <div class="country-meta">
-                  <span class="status-pill">${status}</span>
-                  <span class="mini-pill">${articles.length} entries</span>
-                  <span class="mini-pill">${(profile.priority_specialties || []).length} specialties</span>
-                </div>
-              </div>
-              <span class="expand-icon" aria-hidden="true">+</span>
-            </div>
-          </summary>
-          <div class="country-body">
-            <div class="specialty-strip">${tagList(profile.priority_specialties, 18)}</div>
-            <div class="entry-list">
-              ${articles.map((item, index) => renderEntry(item, index === 0)).join("")}
-            </div>
-          </div>
-        </details>
-      `;
-    }
-
-    function renderPlatform(item) {
-      const evidence = (item.evidence || []).slice(0, 4).map(line => `<li>${esc(line)}</li>`).join("");
-      return `
-        <article class="platform">
-          <div>
-            <span class="date-chip">${formatDate(item.date, { short: true })}</span>
-            <h3>${esc(item.title)}</h3>
-            <p>${esc(item.summary)}</p>
-            ${evidence ? `<ul class="evidence-list">${evidence}</ul>` : ""}
-          </div>
-          <div>
-            <div>${tagList(item.specialties, 6)}</div>
-            <p class="source-line">${esc(item.source)}</p>
-            <a class="url-link" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.url)}</a>
-          </div>
-        </article>
-      `;
-    }
-
-    function renderRecommendations() {
-      document.getElementById("recommendationList").innerHTML = recommendations.map(item => `
-        <article class="recommendation">
-          <div>
-            <h3>${esc(item.title)}</h3>
-            <p>${esc(item.body)}</p>
-          </div>
-          <span class="mini-pill priority">${esc(item.priority)}</span>
-        </article>
-      `).join("");
-    }
-
-    function renderTicker(data) {
-      const items = [
-        `<strong>${(data.articles || []).length}</strong> verified entries`,
-        `<strong>${EXISTING_COUNTRIES.join(" / ")}</strong> existing cooperation`,
-        `<strong>${OPPORTUNITY_COUNTRIES.join(" / ")}</strong> opportunity mapping`,
-        `<strong>${(data.categories?.regional_platform || []).length}</strong> regional platforms`,
-        `<strong>${formatDate(data.generated_at)}</strong> data refresh`
-      ];
-      document.getElementById("tickerTrack").innerHTML = [...items, ...items].map(item => `<span>${item}</span>`).join("");
-    }
-
-    function render(data) {
-      document.getElementById("lastUpdated").textContent = formatDate(data.generated_at, { short: true });
-      document.getElementById("freshness").textContent = freshnessLabel(data.generated_at);
-      document.getElementById("countryCount").textContent = Object.keys(data.country_profiles || {}).length;
-      document.getElementById("entryCount").textContent = (data.articles || []).length;
-
-      const countryGrid = document.getElementById("countryGrid");
-      countryGrid.innerHTML = [
-        ...EXISTING_COUNTRIES.map(country => renderCountry(data, country, "amber")),
-        ...OPPORTUNITY_COUNTRIES.map(country => renderCountry(data, country, "teal"))
-      ].join("");
-      document.getElementById("countryLoading").remove();
-
-      document.getElementById("platformGrid").innerHTML = (data.categories?.regional_platform || []).map(renderPlatform).join("");
-      renderRecommendations();
-      renderTicker(data);
-    }
-
-    async function loadData() {
-      try {
-        const response = await fetch(DATA_URL, { cache: "no-store" });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        render(await response.json());
-      } catch (error) {
-        if (EMBEDDED_DATA) {
-          render(EMBEDDED_DATA);
-          document.getElementById("freshness").textContent = `${freshnessLabel(EMBEDDED_DATA.generated_at)} · embedded fallback`;
-          return;
+      // Build filter pills
+      const filterPills = document.getElementById('filter-pills');
+      const countries = ['all', ...Object.keys(countryConfig)];
+      
+      countries.forEach(country => {
+        const pill = document.createElement('button');
+        pill.className = 'filter-pill' + (country === 'all' ? ' active' : '');
+        pill.dataset.country = country;
+        
+        if (country === 'all') {
+          pill.textContent = '全部';
+        } else {
+          pill.textContent = `${countryConfig[country].flag} ${countryConfig[country].name}`;
         }
-        document.getElementById("countryLoading").outerHTML = `
-          <div class="error">
-            Could not load <code>${DATA_URL}</code>. Serve the repository root with a local static server, then open <code>/website/index.html</code>.
-            Error: ${esc(error.message)}
+        
+        pill.addEventListener('click', () => filterByCountry(country));
+        filterPills.appendChild(pill);
+      });
+
+      // Group articles by country
+      const grouped = {};
+      articles.forEach(article => {
+        // Use first non-China country or ASEAN
+        let country = article.countries.find(c => c !== 'China') || article.countries[0];
+        
+        if (!grouped[country]) {
+          grouped[country] = [];
+        }
+        grouped[country].push(article);
+      });
+
+      // Render
+      const container = document.getElementById('news-container');
+      
+      // Sort groups
+      const sortedCountries = Object.keys(grouped).sort((a, b) => getCountryOrder(a) - getCountryOrder(b));
+      
+      sortedCountries.forEach(country => {
+        const countryArticles = grouped[country];
+        if (!countryConfig[country]) return;
+        
+        const section = document.createElement('section');
+        section.className = 'country-section';
+        section.dataset.country = country;
+        
+        section.innerHTML = `
+          <div class="country-header">
+            <span class="flag">${countryConfig[country].flag}</span>
+            <h2>${countryConfig[country].name}</h2>
+            <span class="count">${countryArticles.length} 条</span>
           </div>
+          <div class="card-grid"></div>
         `;
-        document.getElementById("platformGrid").innerHTML = "";
-        renderRecommendations();
-      }
+        
+        const grid = section.querySelector('.card-grid');
+        
+        countryArticles.forEach(article => {
+          const card = document.createElement('article');
+          card.className = 'news-card';
+          card.dataset.countries = article.countries.join(',');
+          
+          const accentClass = article.category === 'existing_cooperation' ? 'amber' : 'teal';
+          const tagClass = article.category === 'existing_cooperation' ? 'cooperation' : 
+                          article.category === 'regional_platform' ? 'platform' : 'needs';
+          
+          const flags = article.countries.map(c => countryConfig[c]?.flag || '🌐').join(' ');
+          
+          card.innerHTML = `
+            <div class="card-accent ${accentClass}"></div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-date">${formatDate(article.date)}</span>
+                <span class="card-reading-time">${getReadingTime(article.summary)}</span>
+              </div>
+              <div class="card-flags">${flags}</div>
+              <h3 class="card-title">${article.title}</h3>
+              <p class="card-excerpt">${article.summary}</p>
+              <div class="card-tags">
+                <span class="tag ${tagClass}">${tagLabels[article.category]}</span>
+              </div>
+              <div class="card-footer">
+                <span class="card-source">${article.source}</span>
+                <a href="${article.url}" target="_blank" rel="noopener" class="card-link">
+                  阅读原文
+                  <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 1-.152.546c-.094.244-.246.487-.414.698a.5.5 0 0 1-.11.137l-2.055 1.36c-.461.256-.82.546-1.064.742a.5.5 0 0 1-.706 0c-.26-.195-.603-.486-.764-.742a.992.992 0 0 1-.152-.546c.094-.244.246-.487.414-.698.1-.103.198-.201.293-.334l1.36-2.055a.5.5 0 0 1 .11-.137c.26-.196.49-.39.706-.5l1.828-1.828a3 3 0 0 0 0-4.243L9.929.343a3 3 0 0 0-4.243 4.243l.371.707zM8 10.93a1 1 0 0 1 .292-.707l1.36-1.828a1 1 0 0 1 1.414 0l1.828 1.828a1 1 0 0 1 0 1.414l-1.828 1.828a1 1 0 0 1-1.414 0L8 11.636a1 1 0 0 1-.292-.707z"/></svg>
+                </a>
+              </div>
+            </div>
+          `;
+          
+          grid.appendChild(card);
+        });
+        
+        container.appendChild(section);
+      });
     }
 
-    function drawHero() {
-      const canvas = document.getElementById("heroCanvas");
-      const ctx = canvas.getContext("2d");
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-      ctx.clearRect(0, 0, rect.width, rect.height);
-
-      const nodes = [
-        [0.68, 0.22, "CN", "#f3b43f"],
-        [0.63, 0.48, "LA", "#f3b43f"],
-        [0.58, 0.58, "KH", "#f3b43f"],
-        [0.66, 0.58, "VN", "#3fd6c7"],
-        [0.54, 0.66, "TH", "#3fd6c7"],
-        [0.49, 0.61, "MM", "#3fd6c7"],
-        [0.58, 0.82, "MY", "#3fd6c7"],
-        [0.72, 0.86, "ID", "#3fd6c7"],
-        [0.78, 0.63, "PH", "#3fd6c7"]
-      ].map(([x, y, label, color]) => ({ x: x * rect.width, y: y * rect.height, label, color }));
-
-      ctx.lineWidth = 1;
-      nodes.slice(1).forEach(node => {
-        const cn = nodes[0];
-        const gradient = ctx.createLinearGradient(cn.x, cn.y, node.x, node.y);
-        gradient.addColorStop(0, "rgba(243, 180, 63, .45)");
-        gradient.addColorStop(1, "rgba(63, 214, 199, .24)");
-        ctx.strokeStyle = gradient;
-        ctx.beginPath();
-        ctx.moveTo(cn.x, cn.y);
-        const midX = (cn.x + node.x) / 2 + Math.sin(node.y) * 24;
-        const midY = (cn.y + node.y) / 2 - 34;
-        ctx.quadraticCurveTo(midX, midY, node.x, node.y);
-        ctx.stroke();
+    // Filter function
+    function filterByCountry(country) {
+      // Update pills
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.country === country);
       });
-
-      nodes.forEach((node, index) => {
-        ctx.fillStyle = "rgba(255, 255, 255, .08)";
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, index === 0 ? 30 : 22, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = node.color;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, index === 0 ? 7 : 5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = "rgba(247, 244, 235, .82)";
-        ctx.font = "700 12px DM Sans, sans-serif";
-        ctx.fillText(node.label, node.x + 12, node.y + 4);
+      
+      // Show/hide sections
+      document.querySelectorAll('.country-section').forEach(section => {
+        if (country === 'all') {
+          section.style.display = '';
+        } else {
+          section.style.display = section.dataset.country === country ? '' : 'none';
+        }
       });
-
-      for (let i = 0; i < 120; i += 1) {
-        const x = (Math.sin(i * 97.31) * .5 + .5) * rect.width;
-        const y = (Math.cos(i * 41.17) * .5 + .5) * rect.height;
-        ctx.fillStyle = i % 6 === 0 ? "rgba(243, 180, 63, .35)" : "rgba(255, 255, 255, .1)";
-        ctx.fillRect(x, y, 1.2, 1.2);
-      }
     }
 
-    window.addEventListener("resize", drawHero);
-    document.fonts?.ready.then(drawHero);
-    drawHero();
-    loadData();
+    init();
   </script>
 </body>
 </html>
