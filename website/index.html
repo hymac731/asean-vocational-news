@@ -3,837 +3,736 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中国-东盟职业教育合作情报周刊</title>
+  <title>东盟职教情报</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #FAFAFA;
-      --bg-card: #FFFFFF;
-      --text-primary: #1A1A2E;
-      --text-secondary: #4A5568;
-      --text-muted: #718096;
-      --accent-amber: #D4A017;
-      --accent-amber-light: #FEF3C7;
-      --accent-teal: #0EA5A7;
-      --accent-teal-light: #CFFAFE;
-      --border-light: #E5E7EB;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+      --bg: #0A0A0B;
+      --surface: #141416;
+      --surface2: #1C1C1F;
+      --border: rgba(255,255,255,0.08);
+      --text: #FAFAFA;
+      --text-2: #8A8A8E;
+      --text-3: #5C5C5E;
+      --accent: #FF4D00;
+      --accent-2: #FFB300;
+      --green: #00C853;
+      --blue: #2979FF;
+      --purple: #A855F7;
+      --radius: 16px;
+      --radius-sm: 8px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Header */
-    .site-header {
-      background: linear-gradient(135deg, #1A1A2E 0%, #2D2D4A 100%);
-      color: white;
-      padding: 48px 24px 56px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .site-header::before {
-      content: '';
-      position: absolute;
+    /* ── Header ── */
+    .header {
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
+      z-index: 100;
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
     }
 
-    .header-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
+    .header-inner {
+      max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .site-header h1 {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-      font-weight: 900;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .site-header .subtitle {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 24px;
-      font-weight: 400;
-    }
-
-    .header-meta {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-    }
-
-    .header-meta span {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      opacity: 0.85;
-    }
-
-    /* Main container */
-    .main-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 24px 64px;
-    }
-
-    /* Filter bar */
-    .filter-section {
-      margin-bottom: 40px;
-    }
-
-    .filter-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .filter-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .filter-pill {
-      padding: 8px 18px;
-      border-radius: 24px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1.5px solid var(--border-light);
-      background: var(--bg-card);
-      color: var(--text-secondary);
-    }
-
-    .filter-pill:hover {
-      border-color: var(--accent-teal);
-      color: var(--accent-teal);
-      transform: translateY(-1px);
-    }
-
-    .filter-pill.active {
-      background: var(--accent-teal);
-      border-color: var(--accent-teal);
-      color: white;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .filter-pill[data-country="all"].active {
-      background: var(--text-primary);
-      border-color: var(--text-primary);
-    }
-
-    /* Country section */
-    .country-section {
-      margin-bottom: 48px;
-    }
-
-    .country-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--border-light);
-    }
-
-    .country-header h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .country-header .flag {
-      font-size: 1.75rem;
-    }
-
-    .country-header .count {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: var(--bg-primary);
-      padding: 4px 10px;
-      border-radius: 12px;
-      margin-left: auto;
-    }
-
-    /* Card grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    @media (max-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* News card */
-    .news-card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      border: 1px solid var(--border-light);
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .news-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
-    }
-
-    .card-accent {
-      height: 4px;
-    }
-
-    .card-accent.amber {
-      background: linear-gradient(90deg, var(--accent-amber), #F59E0B);
-    }
-
-    .card-accent.teal {
-      background: linear-gradient(90deg, var(--accent-teal), #14B8A6);
-    }
-
-    .card-content {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-meta {
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
-      font-size: 0.8rem;
     }
 
-    .card-date {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .card-reading-time {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-
-    .card-flags {
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-    }
-
-    .card-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      color: var(--text-primary);
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .card-excerpt {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex: 1;
-    }
-
-    .card-tags {
+    .logo {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      color: var(--text-2);
+      font-weight: 400;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stat-badge {
+      display: flex;
+      align-items: center;
       gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-2);
+      background: var(--surface);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px 48px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(255,77,0,0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,77,0,0.2);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       margin-bottom: 16px;
     }
 
-    .tag {
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-2);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-3);
+    }
+
+    .meta-item svg { opacity: 0.6; }
+
+    /* ── Filter ── */
+    .filter-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-2);
+      transition: all 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-btn:hover {
+      background: var(--surface);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* ── Main grid ── */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Featured card (first card, full width) */
+    .card-featured {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 0;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .card-featured:hover {
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .card-featured:hover .featured-title {
+      color: var(--accent);
+    }
+
+    .featured-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tag-chip {
       font-size: 0.7rem;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 4px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
     }
 
-    .tag.cooperation {
-      background: var(--accent-amber-light);
-      color: #B45309;
-    }
+    .tag-chip.cooperation { background: rgba(255,179,0,0.15); color: var(--accent-2); }
+    .tag-chip.policy { background: rgba(0,200,83,0.12); color: var(--green); }
+    .tag-chip.platform { background: rgba(168,85,247,0.12); color: var(--purple); }
 
-    .tag.needs {
-      background: var(--accent-teal-light);
-      color: #0E8078;
-    }
-
-    .tag.platform {
-      background: #EDE9FE;
-      color: #6B21A8;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-light);
-      margin-top: auto;
-    }
-
-    .card-source {
+    .date-badge {
       font-size: 0.75rem;
-      color: var(--text-muted);
-      max-width: 70%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--text-3);
     }
 
-    .card-link {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent-teal);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+    .featured-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text);
       transition: color 0.2s;
     }
 
-    .card-link:hover {
-      color: var(--accent-amber);
+    .featured-summary {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
-    /* Empty state */
-    .empty-state {
-      text-align: center;
-      padding: 60px 24px;
-      color: var(--text-muted);
+    .featured-meta {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .empty-state svg {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
-      opacity: 0.4;
+    .featured-source {
+      font-size: 0.75rem;
+      color: var(--text-3);
     }
 
-    /* Footer */
-    .site-footer {
-      background: var(--text-primary);
-      color: rgba(255,255,255,0.7);
+    .read-btn {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .read-btn:hover { gap: 8px; }
+
+    .featured-img {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 60%, rgba(10,10,11,0.6) 100%);
+    }
+
+    /* Regular card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .card-featured { grid-template-columns: 1fr; }
+      .featured-img { display: none; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .card:hover .card-title { color: var(--accent); }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-date { font-size: 0.72rem; color: var(--text-3); }
+
+    .card-flags { font-size: 1rem; letter-spacing: 1px; }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: color 0.2s;
+    }
+
+    .card-summary {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-source {
+      font-size: 0.68rem;
+      color: var(--text-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 65%;
+    }
+
+    .card-link-icon {
+      font-size: 0.7rem;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover .card-link-icon { opacity: 1; }
+
+    /* Country divider */
+    .country-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 16px;
+    }
+
+    .country-divider .flag { font-size: 1.4rem; }
+
+    .country-divider h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .country-divider .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border);
       padding: 32px 24px;
       text-align: center;
-      font-size: 0.85rem;
     }
 
-    .site-footer p {
-      max-width: 700px;
-      margin: 0 auto 8px;
-    }
-
-    .site-footer .updated {
-      opacity: 0.5;
+    .footer p {
       font-size: 0.75rem;
+      color: var(--text-3);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .footer-update {
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: var(--text-3);
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .country-section {
-      animation: fadeIn 0.4s ease forwards;
+    .card-featured, .card, .country-divider {
+      animation: fadeUp 0.5s ease forwards;
     }
 
-    .country-section:nth-child(2) { animation-delay: 0.05s; }
-    .country-section:nth-child(3) { animation-delay: 0.1s; }
-    .country-section:nth-child(4) { animation-delay: 0.15s; }
-    .country-section:nth-child(5) { animation-delay: 0.2s; }
-    .country-section:nth-child(6) { animation-delay: 0.25s; }
-    .country-section:nth-child(7) { animation-delay: 0.3s; }
-    .country-section:nth-child(8) { animation-delay: 0.35s; }
-    .country-section:nth-child(9) { animation-delay: 0.4s; }
-
-    /* Hidden cards */
-    .news-card.hidden {
-      display: none;
-    }
+    /* Hidden */
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-content">
-      <h1>中国-东盟职业教育合作情报周刊</h1>
-      <p class="subtitle">每周汇总东南亚六国职业教育最新动态</p>
-      <div class="header-meta">
-        <span>
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
-          <span id="current-date"></span>
-        </span>
-        <span>
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
-          第<span id="week-number"></span>周
-        </span>
-        <span>
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6z"/></svg>
-          共 <span id="article-count">0</span> 条资讯
-        </span>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">东</div>
+        <div class="logo-text">东盟职教情报 <span>/ 每周更新</span></div>
+      </div>
+      <div class="header-right">
+        <div class="stat-badge">
+          <div class="dot"></div>
+          <span id="article-count-header">20 条动态</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="main-container">
-    <section class="filter-section">
-      <p class="filter-label">按国家筛选</p>
-      <div class="filter-pills" id="filter-pills"></div>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      🔥 每周精选
+    </div>
+    <h1>中国-东盟<br><span class="accent">职业教育</span> 合作动态</h1>
+    <p class="hero-desc">追踪东南亚六国职业教育政策、合作项目与行业需求，为职教"走出去"提供情报支持。</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
+        <span id="current-date"></span>
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+        <span id="week-label"></span>
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/></svg>
+        共 <strong id="article-count" style="color:var(--text)">20</strong> 条资讯
+      </div>
+    </div>
+  </section>
 
-    <div id="news-container"></div>
-  </main>
+  <!-- Filter -->
+  <div class="filter-wrap">
+    <div class="filter-bar" id="filter-bar"></div>
+  </div>
 
-  <footer class="site-footer">
-    <p>数据来源：东盟各国教育部官网、中国驻外使领馆经商处、职业教育走出去院校</p>
-    <p class="updated">最后更新：<span id="last-updated"></span></p>
+  <!-- Cards -->
+  <main class="main" id="news-main"></main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>数据来源：东盟各国教育部、中国驻外使领馆经商处、World Bank、GIZ、亚洲开发银行等官方渠道</p>
+    <p class="footer-update">最后更新：<span id="last-updated"></span></p>
   </footer>
 
   <script>
-    // Country config
     const countryConfig = {
-      'Cambodia': { flag: '🇰🇭', name: '柬埔寨' },
-      'Laos': { flag: '🇱🇦', name: '老挝' },
-      'Vietnam': { flag: '🇻🇳', name: '越南' },
-      'Thailand': { flag: '🇹🇭', name: '泰国' },
-      'Myanmar': { flag: '🇲🇲', name: '缅甸' },
-      'Malaysia': { flag: '🇲🇾', name: '马来西亚' },
-      'Indonesia': { flag: '🇮🇩', name: '印度尼西亚' },
+      'Cambodia':    { flag: '🇰🇭', name: '柬埔寨' },
+      'Laos':        { flag: '🇱🇦', name: '老挝' },
+      'Vietnam':     { flag: '🇻🇳', name: '越南' },
+      'Thailand':    { flag: '🇹🇭', name: '泰国' },
+      'Myanmar':     { flag: '🇲🇲', name: '缅甸' },
+      'Malaysia':    { flag: '🇲🇾', name: '马来西亚' },
+      'Indonesia':   { flag: '🇮🇩', name: '印尼' },
       'Philippines': { flag: '🇵🇭', name: '菲律宾' },
-      'ASEAN': { flag: '🌏', name: '区域合作' }
+      'ASEAN':       { flag: '🌏', name: '区域合作' }
     };
 
-    // Tag labels
-    const tagLabels = {
-      'existing_cooperation': '合作项目',
-      'vocational_needs': '政策动态',
-      'regional_platform': '平台动态'
+    const tagConfig = {
+      existing_cooperation: { label: '合作项目', cls: 'cooperation' },
+      vocational_needs:      { label: '政策动态', cls: 'policy' },
+      regional_platform:     { label: '平台动态', cls: 'platform' }
     };
 
-    // Article data
     const articles = [
-      {
-        "title": "Cambodia-China University of Technology and Science inaugurated in Phnom Penh",
-        "url": "https://studychina.chinadaily.com.cn/s/202401/02/WS6593a151498ed2d7b7ea40cf/nanjing-vocational-university-of-industry-technology-establishes-vocational-school-in-cambodia.html",
-        "source": "China Daily / Study China",
-        "date": "2024-01-02",
-        "countries": ["Cambodia", "China"],
-        "category": "existing_cooperation",
-        "specialties": ["new energy power generation", "automotive service", "network engineering", "e-commerce", "modern logistics management", "tourism management"],
-        "summary": "Nanjing Vocational University of Industry Technology and the Federation of Khmer Chinese in Cambodia established Cambodia-China University of Technology and Science in Phnom Penh. It is described as China's first overseas applied technology university for vocational education and offers dual China-Cambodia degree pathways."
-      },
-      {
-        "title": "Myanmar renewable-energy TVET trainer programme used virtual TVET",
-        "url": "https://www.cpsctech.org/2024/02/cpsc-labtech-most-myanmar-highlight.html",
-        "source": "Colombo Plan Staff College",
-        "date": "2024-02-08",
-        "countries": ["Myanmar"],
-        "category": "vocational_needs",
-        "specialties": ["renewable energy", "green technology", "digital TVET", "trainer training"],
-        "summary": "CPSC, Labtech, and Myanmar's Ministry of Science and Technology trained 30 lecturers, professors, and trainers in renewable-energy systems using virtual TVET."
-      },
-      {
-        "title": "Thailand faces foundational and digital skills crisis",
-        "url": "https://www.worldbank.org/en/news/feature/2024/02/21/empowering-thailand-a-call-for-action-to-strengthen-foundational-skills",
-        "source": "World Bank / EEF Thailand",
-        "date": "2024-02-21",
-        "countries": ["Thailand"],
-        "category": "vocational_needs",
-        "specialties": ["digital skills", "literacy", "socioemotional skills"],
-        "summary": "The World Bank and Equitable Education Fund reported severe foundational skills gaps in Thailand: many youth and adults lack reading literacy, digital, and socioemotional skills needed for work and advanced training."
-      },
-      {
-        "title": "Vietnam TVET reform targets green and digital transformation",
-        "url": "https://www.tvet-vietnam.org/programme-overview",
-        "source": "GIZ / TVET Viet Nam",
-        "date": "2024-03-01",
-        "countries": ["Vietnam"],
-        "category": "vocational_needs",
-        "specialties": ["renewable energy", "forestry", "wastewater management", "digital skills", "green skills"],
-        "summary": "Vietnam's TVET system is being oriented toward a socially just, green and digital transition. GIZ's 2024-2027 programme supports selected TVET institutes in environmental and digital skills for energy, forestry, and wastewater-related fields."
-      },
-      {
-        "title": "Philippine TVET study identifies construction, manufacturing, tourism barriers",
-        "url": "https://pids.gov.ph/publication/research-paper-series/issues-in-philippine-tvet-responsiveness-to-industry-demand-and-barriers-to-access-among-disadvantaged-youth",
-        "source": "Philippine Institute for Development Studies",
-        "date": "2024-03-11",
-        "countries": ["Philippines"],
-        "category": "vocational_needs",
-        "specialties": ["construction", "manufacturing", "tourism", "soft skills", "trainer upgrading"],
-        "summary": "PIDS assessed Philippine TVET responsiveness to industry demand through enterprise-based training providers in construction, manufacturing, and tourism."
-      },
-      {
-        "title": "Lao Railway Vocational and Technical College fills railway-technology education gap",
-        "url": "https://studychina.chinadaily.com.cn/s/202406/04/WS665e7ae9498ed2d7b7eaf8ca/lao-president-hails-china-laos-railway-cooperation.html",
-        "source": "China Daily",
-        "date": "2024-06-04",
-        "countries": ["Laos", "China"],
-        "category": "existing_cooperation",
-        "specialties": ["railway engineering", "railway operation", "railway maintenance"],
-        "summary": "Lao President Thongloun Sisoulith called Lao Railway Vocational and Technical College a notable Laos-China cooperation achievement that fills a national gap in railway technology education."
-      },
-      {
-        "title": "Malaysia added RM200 million for TVET in high-value sectors",
-        "url": "https://www.nst.com.my/amp/news/nation/2024/06/1060880/pm-announces-rm200-million-boost-tvet-programmes",
-        "source": "New Straits Times",
-        "date": "2024-06-08",
-        "countries": ["Malaysia"],
-        "category": "vocational_needs",
-        "specialties": ["electric vehicles", "cybersecurity", "AI", "advanced materials", "integrated circuit design", "wafer fabrication", "farm mechanisation"],
-        "summary": "Malaysia announced an additional RM200 million for TVET programmes to meet high-value sector demand, including EVs, cybersecurity, AI, advanced materials, electronics, engineering design, wafer fabrication, and agricultural automation."
-      },
-      {
-        "title": "2024 Chinese Language + Hydropower Vocational Skills training opened for Cambodia",
-        "url": "https://gxsdxy.cn/ywz/Admission/Training_Programs.htm",
-        "source": "Guangxi Vocational College of Water Resources and Electric Power",
-        "date": "2024-07-12",
-        "countries": ["Cambodia", "China"],
-        "category": "existing_cooperation",
-        "specialties": ["hydropower", "water resources", "Chinese language"],
-        "summary": "GCWE and China Huadian Cambodia launched online training to cultivate overseas talent in water resources and hydropower and support Chinese enterprises in Cambodia."
-      },
-      {
-        "title": "Thailand EV workforce development focuses on 150,000 skilled personnel",
-        "url": "https://www.nxpo.or.th/th/en/26656/",
-        "source": "Thailand NXPO",
-        "date": "2024-07-15",
-        "countries": ["Thailand"],
-        "category": "vocational_needs",
-        "specialties": ["electric vehicles", "battery systems", "maintenance", "charging systems", "testing"],
-        "summary": "Thailand's MHESI-NXPO and Rajamangala University of Technology Lanna planned EV-HRD workforce development, aiming to produce 150,000 skilled personnel in five years."
-      },
-      {
-        "title": "CATECP call for international technical courses reports large ASEAN training platform",
-        "url": "https://catecp.seameoted.org/news/136.html",
-        "source": "China-ASEAN Technical Education Cooperation Platform / SEAMEO TED",
-        "date": "2024-08-01",
-        "countries": ["ASEAN", "China"],
-        "category": "regional_platform",
-        "specialties": ["intelligent manufacturing", "transportation and logistics", "automobile repair", "road and bridge"],
-        "summary": "The China-ASEAN Technical Education Cooperation Platform reported cooperation with 11 Southeast Asian countries, more than 2,000 colleges and universities, over 200 courses, more than 40 majors, and direct training for more than 50,000 people."
-      },
-      {
-        "title": "2024 education+ initiative included e-commerce and agriculture vocational training",
-        "url": "https://govt.chinadaily.com.cn/s/202408/16/WS66e00395498ed2d7b7eb92bf/2024-china-asean-education-cooperation-week-to-feature-education-initiative.html",
-        "source": "China Daily / Guizhou",
-        "date": "2024-08-16",
-        "countries": ["Laos", "Vietnam", "Cambodia", "China"],
-        "category": "regional_platform",
-        "specialties": ["cross-border e-commerce", "livestreaming", "agriculture", "e-sports"],
-        "summary": "The 2024 China-ASEAN Education Cooperation Week's 'education+' initiative included cross-border e-commerce livestreaming and talent training for Laos, Vietnam, Cambodia and other countries."
-      },
-      {
-        "title": "2024 China-ASEAN Education Cooperation Week opened in Guiyang",
-        "url": "https://en.moe.gov.cn/news/press_releases/202408/t20240823_1146878.html",
-        "source": "Chinese Ministry of Education",
-        "date": "2024-08-23",
-        "countries": ["ASEAN", "China"],
-        "category": "regional_platform",
-        "specialties": ["talent training", "industry-education integration", "teacher exchange"],
-        "summary": "The 2024 China-ASEAN Education Cooperation Week opened in Guiyang with more than 70 activities planned under the China-ASEAN Year of People-to-People Exchanges."
-      },
-      {
-        "title": "China-Cambodia Institute of Modern Craftsmanship of Green Energy recognized as excellent partner",
-        "url": "https://www.gxsdxy.cn/ywz/info/1071/2092.htm",
-        "source": "Guangxi Vocational College of Water Resources and Electric Power",
-        "date": "2024-08-25",
-        "countries": ["Cambodia", "China"],
-        "category": "existing_cooperation",
-        "specialties": ["green energy", "hydropower", "Chinese language + vocational skills"],
-        "summary": "Guangxi Vocational College of Water Resources and Electric Power, Prek Leap National Institute of Agriculture in Cambodia, and China Huadian's Cambodian hydropower project were selected as 2024 China-ASEAN Vocational Education Excellent Cooperation Partners."
-      },
-      {
-        "title": "OECD says Malaysia's TVET needs streamlining and stronger alignment with firm needs",
-        "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2024_e45ca31a-en/full-report/towards-more-inclusive-growth_02760e13.html",
-        "source": "OECD",
-        "date": "2024-08-27",
-        "countries": ["Malaysia"],
-        "category": "vocational_needs",
-        "specialties": ["industry alignment", "quality assurance", "digital skills", "green skills"],
-        "summary": "OECD's Malaysia 2024 survey says TVET effectiveness depends on delivering skills that match firms' needs and are directly applicable at work."
-      },
-      {
-        "title": "Cambodian education official says China's VET system is a valuable model",
-        "url": "https://english.news.cn/20241114/b1403227636e41b8bcd5bd9c661c7825/c.html",
-        "source": "Xinhua",
-        "date": "2024-11-14",
-        "countries": ["Cambodia", "China"],
-        "category": "vocational_needs",
-        "specialties": ["construction", "engineering", "logistics", "manufacturing", "services"],
-        "summary": "Om Romny, secretary of state at Cambodia's Ministry of Education, said Cambodia faces limited training facilities, outdated curricula, and mismatch between skills taught and market demand."
-      },
-      {
-        "title": "China-Laos Chuyi Academy opens in Vientiane",
-        "url": "https://enghunan.gov.cn/hneng/News/Localnews/202411/t20241116_33500363.html",
-        "source": "Hunan Provincial Government / Chinanews",
-        "date": "2024-11-16",
-        "countries": ["Laos", "China"],
-        "category": "existing_cooperation",
-        "specialties": ["e-commerce", "vocational standards", "teacher training"],
-        "summary": "Changsha Social Work College and Pakpasak Technical College opened the China-Laos Chuyi Academy in Vientiane with a first cohort of 45 Lao students and a new e-commerce specialty."
-      },
-      {
-        "title": "Indonesia 2024 OECD survey calls for local industry role in vocational training",
-        "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-indonesia-2024_de87555a-en/full-report/accelerating-growth-and-attaining-socioeconomic-convergence_02e70f46.html",
-        "source": "OECD",
-        "date": "2024-11-26",
-        "countries": ["Indonesia"],
-        "category": "vocational_needs",
-        "specialties": ["digital skills", "information-processing skills", "green transition", "local workforce needs"],
-        "summary": "OECD's Indonesia 2024 survey says adult skills are low, vocational training is a high share of secondary schooling but does not always match local workforce needs."
-      },
-      {
-        "title": "Myanmar industrial training center offers machinery, CAD/CAM, electrician, electronics, foundry courses",
-        "url": "https://mdn.gov.mm/en/itc-thagaya-offer-industrial-skills-training-may",
-        "source": "Myanmar Digital News",
-        "date": "2025-02-20",
-        "countries": ["Myanmar"],
-        "category": "vocational_needs",
-        "specialties": ["machinery", "CAD/CAM", "electrician", "electronics", "foundry"],
-        "summary": "No. 3 Industrial Training Center Thagaya announced one-year industrial skills training from May 2025 to April 2026 with 30 percent theory and 70 percent practical learning."
-      },
-      {
-        "title": "2025 China-ASEAN Education Ministers' Dialogue proposed consultative mechanism",
-        "url": "https://en.moe.gov.cn/news/press_releases/202505/t20250518_1191065.html",
-        "source": "Chinese Ministry of Education",
-        "date": "2025-05-17",
-        "countries": ["ASEAN", "China"],
-        "category": "regional_platform",
-        "specialties": ["AI", "digital education", "industry-education integration", "teacher exchange"],
-        "summary": "At the 2025 China-ASEAN Education Ministers' Dialogue in Wuhan, China's education minister proposed a China-ASEAN Education Ministers Consultative Mechanism."
-      },
-      {
-        "title": "Vietnam renewable-energy skills study highlights O&M gap",
-        "url": "https://www.tvet-vietnam.org/archives/news/in-depth-study-on-skills-demands-and-training-capacity-for-renewable-energy-sector-at-central-and-central-highland-areas-in-viet-nam",
-        "source": "GIZ / TVET Viet Nam",
-        "date": "2025-07-15",
-        "countries": ["Vietnam"],
-        "category": "vocational_needs",
-        "specialties": ["wind power", "solar power", "energy storage", "grid management", "smart energy", "operation and maintenance"],
-        "summary": "A GIZ study on Vietnam's Central and Central Highlands renewable-energy sector found a mismatch between current workforce capabilities and the advanced technical and operational skills required for renewable-energy systems."
-      },
-      {
-        "title": "ADB Philippines youth employment strategy backs higher-skilled jobs",
-        "url": "https://seads.adb.org/articles/breaking-down-barriers-youth-employment",
-        "source": "Asian Development Bank / SEADS",
-        "date": "2025-09-17",
-        "countries": ["Philippines"],
-        "category": "vocational_needs",
-        "specialties": ["analytics", "AI", "software development", "security", "business process management", "entrepreneurship"],
-        "summary": "ADB's Philippines support for 2024-2029 focuses on access to vocational training, technical skills, and entrepreneurship programs, with reforms for higher-skilled jobs."
-      }
+      { title: "柬埔寨-中国应用科技大学在金边正式成立", url: "https://studychina.chinadaily.com.cn/s/202401/02/WS6593a151498ed2d7b7ea40cf/nanjing-vocational-university-of-industry-technology-establishes-vocational-school-in-cambodia.html", source: "中国日报 / Study China", date: "2024-01-02", countries: ["Cambodia", "China"], category: "existing_cooperation", summary: "南京工业职业技术大学与柬埔寨柬华理事会联合设立柬埔寨-中国应用科技大学，被誉为中国首个海外应用技术大学，提供双学位项目，涵盖新能源发电、汽车服务、网络工程、电子商务、现代物流、旅游管理等专业。" },
+      { title: "缅甸可再生能源职教师资培训引入虚拟TVET", url: "https://www.cpsctech.org/2024/02/cpsc-labtech-most-myanmar-highlight.html", source: "科伦坡计划职员学院", date: "2024-02-08", countries: ["Myanmar"], category: "vocational_needs", summary: "CPSC、Labtech与缅甸科技部合作，采用虚拟TVET方式培训30名讲师、教授及培训师，涵盖可再生能源系统与绿色技术。" },
+      { title: "世界银行：泰国基础技能与数字技能缺口严重", url: "https://www.worldbank.org/en/news/feature/2024/02/21/empowering-thailand-a-call-for-action-to-strengthen-foundational-skills", source: "World Bank / EEF Thailand", date: "2024-02-21", countries: ["Thailand"], category: "vocational_needs", summary: "世界银行与公平教育基金报告显示，泰国大量青年和成年人缺乏阅读素养、数字技能和社会情感能力，难以满足就业和进阶培训需求。" },
+      { title: "越南职教改革瞄准绿色与数字化转型", url: "https://www.tvet-vietnam.org/programme-overview", source: "GIZ / 越南职教", date: "2024-03-01", countries: ["Vietnam"], category: "vocational_needs", summary: "越南职教体系正朝着社会公平、绿色和数字化转型方向调整。GIZ 2024-2027计划支持选定职教机构开展能源、林业、废水处理等领域的环保与数字技能培训。" },
+      { title: "菲律宾职教研究：建筑、制造、旅游行业存在人才壁垒", url: "https://pids.gov.ph/publication/research-paper-series/issues-in-philippine-tvet-responsiveness-to-industry-demand-and-barriers-to-access-among-disadvantaged-youth", source: "菲律宾发展研究所", date: "2024-03-11", countries: ["Philippines"], category: "vocational_needs", summary: "PIDS评估了菲律宾职教对建筑、制造、旅游行业企业需求的响应程度，发现弱势青年在获得优质职教方面面临系统性障碍。" },
+      { title: "老挝铁路职技学院填补铁路技术教育空白", url: "https://studychina.chinadaily.com.cn/s/202406/04/WS665e7ae9498ed2d7b7eaf8ca/lao-president-hails-china-laos-railway-cooperation.html", source: "中国日报", date: "2024-06-04", countries: ["Laos", "China"], category: "existing_cooperation", summary: "老挝总统通伦称老挝铁路职业技术学校是老中合作的重要成果，填补了老挝铁路技术教育的空白，为中老铁路培养本土技术人才。" },
+      { title: "马来西亚追加2亿林吉特支持高价值领域TVET", url: "https://www.nst.com.my/amp/news/nation/2024/06/1060880/pm-announces-rm200-million-boost-tvet-programmes", source: "新海峡时报", date: "2024-06-08", countries: ["Malaysia"], category: "vocational_needs", summary: "马来西亚宣布额外拨款2亿林吉特用于TVET项目，重点覆盖电动汽车、网络安全、人工智能、先进材料、芯片设计、晶圆制造、农业机械化等高价值领域。" },
+      { title: "2024"中文+水电职业技能"培训向柬埔寨开放", url: "https://gxsdxy.cn/ywz/Admission/Training_Programs.htm", source: "广西水利电力职院", date: "2024-07-12", countries: ["Cambodia", "China"], category: "existing_cooperation", summary: "广西水利电力职院与华电柬埔寨公司联合推出线上培训项目，培养海外水电人才，服务中资企业在柬埔寨的发展。" },
+      { title: "泰国EV产业发展：五年培养15万技能人才", url: "https://www.nxpo.or.th/th/en/26656/", source: "泰国NXPO", date: "2024-07-15", countries: ["Thailand"], category: "vocational_needs", summary: "泰国高等教育、科学与创新部和NXPO联合制定电动汽车人力资源开发计划，目标是五年内培养15万名电动汽车领域熟练技术人员，涵盖电池系统、维护、充电系统及检测等方向。" },
+      { title: "中国-东盟技术教育合作平台覆盖东南亚2万余所院校", url: "https://catecp.seameoted.org/news/136.html", source: "CATECP / SEAMEO TED", date: "2024-08-01", countries: ["ASEAN", "China"], category: "regional_platform", summary: "中国-东盟技术教育合作平台已与11个东南亚国家、2000多所院校建立合作，开发课程200余门、专业40余个，直接培训人数超过5万人。" },
+      { title: "2024中国-东盟教育交流周：电商+农业职教成亮点", url: "https://govt.chinadaily.com.cn/s/202408/16/WS66e00395498ed2d7b7eb92bf/2024-china-asean-education-cooperation-week-to-feature-education-initiative.html", source: "中国日报 / 贵州", date: "2024-08-16", countries: ["Laos", "Vietnam", "Cambodia", "China"], category: "regional_platform", summary: "2024中国-东盟教育交流周期间，"教育+"行动计划包含跨境电商直播、农业技能等人才培养项目，面向老挝、越南、柬埔寨等国。" },
+      { title: "2024中国-东盟教育交流周在贵阳开幕", url: "https://en.moe.gov.cn/news/press_releases/202408/t20240823_1146878.html", source: "中国教育部", date: "2024-08-23", countries: ["ASEAN", "China"], category: "regional_platform", summary: "2024中国-东盟教育交流周在贵阳开幕，举办70余场活动，列入中国-东盟人文交流年框架，深化双方教育合作。" },
+      { title: "中柬绿色能源现代工匠学院获评优秀合作伙伴", url: "https://www.gxsdxy.cn/ywz/info/1071/2092.htm", source: "广西水利电力职院", date: "2024-08-25", countries: ["Cambodia", "China"], category: "existing_cooperation", summary: "广西水利电力职院、柬埔寨农业厅职业学院及华电柬埔寨水电项目入选2024中国-东盟职教优秀合作伙伴名单。" },
+      { title: "OECD报告：马来西亚TVET需精简并加强与行业需求对接", url: "https://www.oecd.org/en/publications/oecd-economic-surveys-malaysia-2024_e45ca31a-en/full-report/towards-more-inclusive-growth_02760e13.html", source: "OECD", date: "2024-08-27", countries: ["Malaysia"], category: "vocational_needs", summary: "OECD 2024年马来西亚经济调查报告指出，TVET体系有效性取决于能否提供与行业需求直接匹配的实用技能。" },
+      { title: "柬埔寨教育部官员：中国职教体系是宝贵参照", url: "https://english.news.cn/20241114/b1403227636e41b8bcd5bd9c661c7825/c.html", source: "新华社", date: "2024-11-14", countries: ["Cambodia", "China"], category: "vocational_needs", summary: "柬埔寨教育部国务秘书Om Romny表示，柬埔寨面临培训设施有限、课程内容陈旧、所学技能与市场需求不匹配等挑战，中国职教体系值得借鉴。" },
+      { title: "中老楚怡学院在万象成立", url: "https://enghunan.gov.cn/hneng/News/Localnews/202411/t20241116_33500363.html", source: "湖南省政府 / 中新社", date: "2024-11-16", countries: ["Laos", "China"], category: "existing_cooperation", summary: "长沙民政职院与老挝帕克帕萨克职校在万象设立中老楚怡学院，首批招收45名老挝学生，新设电子商务专业。" },
+      { title: "OECD报告：印尼需让本地产业深度参与职教培训", url: "https://www.oecd.org/en/publications/oecd-economic-surveys-indonesia-2024_de87555a-en/full-report/accelerating-growth-and-attaining-socioeconomic-convergence_02e70f46.html", source: "OECD", date: "2024-11-26", countries: ["Indonesia"], category: "vocational_needs", summary: "OECD 2024年印尼经济调查报告指出，印尼成人技能水平较低，职教在中等教育占比较高但常与本地劳动力需求不匹配，需加强产业端参与。" },
+      { title: "缅甸第三工业培训中心开设机械、CAD/CAM、电工、电子、铸造课程", url: "https://mdn.gov.mm/en/itc-thagaya-offer-industrial-skills-training-may", source: "缅甸数字新闻", date: "2025-02-20", countries: ["Myanmar"], category: "vocational_needs", summary: "第三工业培训中心（Thagaya）宣布2025年5月至2026年4月开设为期一年工业技能培训，理论30%、实践70%，覆盖机械加工、CAD/CAM、电工电子、铸造等领域。" },
+      { title: "2025中国-东盟教育部长对话会在武汉举行", url: "https://en.moe.gov.cn/news/press_releases/202505/t20250518_1191065.html", source: "中国教育部", date: "2025-05-17", countries: ["ASEAN", "China"], category: "regional_platform", summary: "2025中国-东盟教育部长对话会在武汉举办，中国教育部长倡议建立中国-东盟教育部长磋商机制，聚焦AI、数字教育、产教融合、师资交流等领域合作。" },
+      { title: "越南可再生能源技能研究：运维人才缺口突出", url: "https://www.tvet-vietnam.org/archives/news/in-depth-study-on-skills-demands-and-training-capacity-for-renewable-energy-sector-at-central-and-central-highland-areas-in-viet-nam", source: "GIZ / 越南职教", date: "2025-07-15", countries: ["Vietnam"], category: "vocational_needs", summary: "GIZ对越南中部及中部高地可再生能源行业的研究发现，当前劳动力能力与再生能源系统所需高级技术与运维技能之间存在明显差距。" },
+      { title: "亚行菲律宾青年就业战略：支持高技能岗位培训", url: "https://seads.adb.org/articles/breaking-down-barriers-youth-employment", source: "亚洲开发银行 / SEADS", date: "2025-09-17", countries: ["Philippines"], category: "vocational_needs", summary: "亚行2024-2029年菲律宾支持计划聚焦职业教育通道、技术技能与创业项目，目标之一是推动改革以创造更多高技能就业机会。" }
     ];
 
-    // Sort by date descending
     articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // Get week number
-    function getWeekNumber(d) {
-      d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-      d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
-      var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
-      var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
-      return weekNo;
-    }
-
-    // Format date
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-    }
-
-    // Calculate reading time
-    function getReadingTime(text) {
-      const words = text.split(/\s+/).length;
-      const minutes = Math.ceil(words / 200);
-      return `${minutes}分钟阅读`;
-    }
-
-    // Get country order
-    function getCountryOrder(country) {
-      const order = ['Cambodia', 'Laos', 'Vietnam', 'Thailand', 'Myanmar', 'Malaysia', 'Indonesia', 'Philippines', 'ASEAN'];
-      return order.indexOf(country);
-    }
-
-    // Initialize
-    function init() {
-      // Header meta
+    function getWeekLabel() {
       const now = new Date();
-      document.getElementById('current-date').textContent = formatDate(now);
-      document.getElementById('week-number').textContent = getWeekNumber(now);
+      const start = new Date(now.getFullYear(), 0, 1);
+      const week = Math.ceil(((now - start) / 86400000 + start.getDay() + 1) / 7);
+      return `第${week}周`;
+    }
+
+    function formatDateCN(d) {
+      return new Date(d).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function init() {
+      const now = new Date();
+      document.getElementById('current-date').textContent = formatDateCN(now);
+      document.getElementById('week-label').textContent = getWeekLabel();
       document.getElementById('article-count').textContent = articles.length;
-      document.getElementById('last-updated').textContent = formatDate(now);
+      document.getElementById('article-count-header').textContent = `${articles.length} 条动态`;
+      document.getElementById('last-updated').textContent = formatDateCN(now);
 
-      // Build filter pills
-      const filterPills = document.getElementById('filter-pills');
+      // Filter bar
+      const filterBar = document.getElementById('filter-bar');
       const countries = ['all', ...Object.keys(countryConfig)];
-      
-      countries.forEach(country => {
-        const pill = document.createElement('button');
-        pill.className = 'filter-pill' + (country === 'all' ? ' active' : '');
-        pill.dataset.country = country;
-        
-        if (country === 'all') {
-          pill.textContent = '全部';
-        } else {
-          pill.textContent = `${countryConfig[country].flag} ${countryConfig[country].name}`;
-        }
-        
-        pill.addEventListener('click', () => filterByCountry(country));
-        filterPills.appendChild(pill);
+      countries.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (c === 'all' ? ' active' : '');
+        btn.dataset.country = c;
+        btn.textContent = c === 'all' ? '全部' : `${countryConfig[c].flag} ${countryConfig[c].name}`;
+        btn.addEventListener('click', () => filterByCountry(c));
+        filterBar.appendChild(btn);
       });
 
-      // Group articles by country
-      const grouped = {};
-      articles.forEach(article => {
-        // Use first non-China country or ASEAN
-        let country = article.countries.find(c => c !== 'China') || article.countries[0];
-        
-        if (!grouped[country]) {
-          grouped[country] = [];
-        }
-        grouped[country].push(article);
+      renderCards();
+    }
+
+    function filterByCountry(country) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.country === country);
       });
 
-      // Render
-      const container = document.getElementById('news-container');
-      
-      // Sort groups
-      const sortedCountries = Object.keys(grouped).sort((a, b) => getCountryOrder(a) - getCountryOrder(b));
-      
-      sortedCountries.forEach(country => {
-        const countryArticles = grouped[country];
-        if (!countryConfig[country]) return;
-        
-        const section = document.createElement('section');
-        section.className = 'country-section';
-        section.dataset.country = country;
-        
-        section.innerHTML = `
-          <div class="country-header">
-            <span class="flag">${countryConfig[country].flag}</span>
-            <h2>${countryConfig[country].name}</h2>
-            <span class="count">${countryArticles.length} 条</span>
-          </div>
-          <div class="card-grid"></div>
-        `;
-        
-        const grid = section.querySelector('.card-grid');
-        
-        countryArticles.forEach(article => {
-          const card = document.createElement('article');
-          card.className = 'news-card';
-          card.dataset.countries = article.countries.join(',');
-          
-          const accentClass = article.category === 'existing_cooperation' ? 'amber' : 'teal';
-          const tagClass = article.category === 'existing_cooperation' ? 'cooperation' : 
-                          article.category === 'regional_platform' ? 'platform' : 'needs';
-          
-          const flags = article.countries.map(c => countryConfig[c]?.flag || '🌐').join(' ');
-          
-          card.innerHTML = `
-            <div class="card-accent ${accentClass}"></div>
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-date">${formatDate(article.date)}</span>
-                <span class="card-reading-time">${getReadingTime(article.summary)}</span>
-              </div>
-              <div class="card-flags">${flags}</div>
-              <h3 class="card-title">${article.title}</h3>
-              <p class="card-excerpt">${article.summary}</p>
-              <div class="card-tags">
-                <span class="tag ${tagClass}">${tagLabels[article.category]}</span>
-              </div>
-              <div class="card-footer">
-                <span class="card-source">${article.source}</span>
-                <a href="${article.url}" target="_blank" rel="noopener" class="card-link">
-                  阅读原文
-                  <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 1-.152.546c-.094.244-.246.487-.414.698a.5.5 0 0 1-.11.137l-2.055 1.36c-.461.256-.82.546-1.064.742a.5.5 0 0 1-.706 0c-.26-.195-.603-.486-.764-.742a.992.992 0 0 1-.152-.546c.094-.244.246-.487.414-.698.1-.103.198-.201.293-.334l1.36-2.055a.5.5 0 0 1 .11-.137c.26-.196.49-.39.706-.5l1.828-1.828a3 3 0 0 0 0-4.243L9.929.343a3 3 0 0 0-4.243 4.243l.371.707zM8 10.93a1 1 0 0 1 .292-.707l1.36-1.828a1 1 0 0 1 1.414 0l1.828 1.828a1 1 0 0 1 0 1.414l-1.828 1.828a1 1 0 0 1-1.414 0L8 11.636a1 1 0 0 1-.292-.707z"/></svg>
-                </a>
-              </div>
-            </div>
-          `;
-          
-          grid.appendChild(card);
-        });
-        
-        container.appendChild(section);
+      document.querySelectorAll('.country-group').forEach(g => {
+        g.style.display = country === 'all' || g.dataset.country === country ? '' : 'none';
       });
     }
 
-    // Filter function
-    function filterByCountry(country) {
-      // Update pills
-      document.querySelectorAll('.filter-pill').forEach(pill => {
-        pill.classList.toggle('active', pill.dataset.country === country);
+    function renderCards() {
+      const main = document.getElementById('news-main');
+
+      // Group
+      const grouped = {};
+      articles.forEach(a => {
+        const c = a.countries.find(x => x !== 'China') || a.countries[0];
+        if (!grouped[c]) grouped[c] = [];
+        grouped[c].push(a);
       });
-      
-      // Show/hide sections
-      document.querySelectorAll('.country-section').forEach(section => {
-        if (country === 'all') {
-          section.style.display = '';
-        } else {
-          section.style.display = section.dataset.country === country ? '' : 'none';
+
+      const order = ['Cambodia','Laos','Vietnam','Thailand','Myanmar','Malaysia','Indonesia','Philippines','ASEAN'];
+
+      order.forEach((country, idx) => {
+        if (!grouped[country]) return;
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'country-group';
+        groupDiv.dataset.country = country;
+
+        // Divider
+        const divider = document.createElement('div');
+        divider.className = 'country-divider';
+        divider.innerHTML = `<span class="flag">${countryConfig[country].flag}</span><h2>${countryConfig[country].name}</h2><div class="line"></div>`;
+        groupDiv.appendChild(divider);
+
+        const cards = grouped[country];
+
+        // Featured card (first)
+        const feat = cards[0];
+        const featTag = tagConfig[feat.category];
+        const featCard = document.createElement('a');
+        featCard.className = 'card-featured';
+        featCard.href = feat.url;
+        featCard.target = '_blank';
+        featCard.rel = 'noopener';
+        featCard.style.animationDelay = `${idx * 0.05}s`;
+
+        const imgFlags = feat.countries.map(c => countryConfig[c]?.flag || '🌐').join('');
+        featCard.innerHTML = `
+          <div class="featured-body">
+            <div class="featured-eyebrow">
+              <span class="tag-chip ${featTag.cls}">${featTag.label}</span>
+              <span class="date-badge">${formatDateCN(feat.date)}</span>
+            </div>
+            <h3 class="featured-title">${feat.title}</h3>
+            <p class="featured-summary">${feat.summary}</p>
+            <div class="featured-meta">
+              <span class="featured-source">${feat.source}</span>
+              <a href="${feat.url}" target="_blank" rel="noopener" class="read-btn" onclick="event.stopPropagation()">
+                阅读原文 →
+              </a>
+            </div>
+          </div>
+          <div class="featured-img">${imgFlags}</div>
+        `;
+        groupDiv.appendChild(featCard);
+
+        // Rest of cards
+        if (cards.length > 1) {
+          const grid = document.createElement('div');
+          grid.className = 'card-grid';
+
+          cards.slice(1).forEach((a, i) => {
+            const tag = tagConfig[a.category];
+            const flags = a.countries.map(c => countryConfig[c]?.flag || '🌐').join('');
+            const card = document.createElement('a');
+            card.className = 'card';
+            card.href = a.url;
+            card.target = '_blank';
+            card.rel = 'noopener';
+            card.style.animationDelay = `${idx * 0.05 + (i + 1) * 0.04}s`;
+            card.innerHTML = `
+              <div class="card-top">
+                <span class="card-date">${formatDateCN(a.date)}</span>
+                <span class="card-flags">${flags}</span>
+              </div>
+              <h3 class="card-title">${a.title}</h3>
+              <p class="card-summary">${a.summary}</p>
+              <div class="card-bottom">
+                <span class="card-source">${a.source}</span>
+                <span class="card-link-icon">→</span>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+
+          groupDiv.appendChild(grid);
         }
+
+        main.appendChild(groupDiv);
       });
     }
 
