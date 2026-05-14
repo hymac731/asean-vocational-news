@@ -1,38 +1,9 @@
 {
-  "generated_at": "2026-05-13T09:35:59.119436+00:00",
+  "generated_at": "2026-05-14T15:06:26.819268",
   "method": {
-    "search_queries": [
-      "China ASEAN vocational education cooperation Cambodia Laos 2024 2025",
-      "China Cambodia vocational education partnership school specialty 2024",
-      "China Laos vocational education cooperation railway college e-commerce 2024",
-      "China ASEAN vocational education Cambodia Laos Xinhua China Daily MOE 2025",
-      "Vietnam TVET skills demand 2024 renewable energy digital transformation",
-      "Thailand TVET skills demand 2024 electric vehicle digital workforce",
-      "Myanmar TVET skills demand 2024 renewable energy industrial training",
-      "Malaysia TVET skills demand 2024 AI EV cybersecurity green skills",
-      "Indonesia vocational education skills mismatch 2024 digital green transition",
-      "Philippines TVET responsiveness industry demand 2024 construction manufacturing tourism"
-    ],
-    "target_domains": [
-      "xinhuanet.com",
-      "news.cn",
-      "chinadaily.com.cn",
-      "yidaiyilu.gov.cn",
-      "moe.gov.cn",
-      "cctv.com",
-      "people.cn",
-      "enghunan.gov.cn",
-      "tvet-vietnam.org",
-      "worldbank.org",
-      "oecd.org",
-      "pids.gov.ph",
-      "adb.org",
-      "ilo.org"
-    ],
-    "note": "Live web search/scraping is attempted unless --seed-only is passed. If network is blocked, verified seed records are still used.",
-    "errors": [
-      "Live search/scraping skipped because --seed-only was used."
-    ]
+    "live_search": true,
+    "seed": true,
+    "research": true
   },
   "country_profiles": {
     "Cambodia": {
@@ -1447,6 +1418,334 @@
       "quote": "",
       "scraped": false,
       "search_query": null
+    },
+    {
+      "title": "SVCIT Innovation Center (Vietnam)",
+      "url": "https://catecp.seameoted.org/partner/26.html",
+      "source": "CATECP",
+      "date": "2022",
+      "countries": [
+        "Vietnam",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Information Technology",
+        "Digital Technology",
+        "Innovation Training"
+      ],
+      "summary": "Founded on September 29, 2022, SVCIT Innovation Center (Vietnam) is an overseas training base jointly sponsored by Sichuan Vocational College of Information Technology, Ho Chi Minh City University of Technology (HUTECH) and Suzhou Secote Precision Electronic Co., Ltd. It serves as an overseas exchange platform for Chinese vocational education to serve Chinese enterprises going global and support Belt and Road development.",
+      "institutions": [
+        "Sichuan Vocational College of Information Technology",
+        "Ho Chi Minh City University of Technology (HUTECH)"
+      ]
+    },
+    {
+      "title": "Wuhan Electric Power Technical College Indonesia Green Energy Talent Development Base",
+      "url": "https://catecp.seameoted.org/partner/39.html",
+      "source": "CATECP",
+      "date": "2025",
+      "countries": [
+        "Indonesia",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Green Energy",
+        "Power Engineering",
+        "Electric Power Technology"
+      ],
+      "summary": "Founded on December 2, 2025, the Wuhan Electric Power Technical College Indonesia Green Energy Talent Development Base is a joint initiative established by Wuhan Electric Power Technical College (WHETC), PT.CCEPC, and Politeknik Negeri Ujung Pandang (PNUP). The base focuses on cultivating high-level technical professionals for Indonesia's green and electric-power industries through training, curriculum development, and faculty exchanges.",
+      "institutions": [
+        "Wuhan Electric Power Technical College",
+        "Politeknik Negeri Ujung Pandang (PNUP)"
+      ]
+    },
+    {
+      "title": "China-ASEAN Rail Transit Engineering Vocational Education Alliance (REVEA)",
+      "url": "https://catecp.seameoted.org/partner/6.html",
+      "source": "CATECP",
+      "date": "2018",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "Rail Transit Engineering",
+        "Railway Construction",
+        "Transportation"
+      ],
+      "summary": "China-ASEAN Rail Transit Engineering Vocational Education Alliance (China-ASEAN REVEA) was established on May 19, 2018, with 68 international and domestic member institutions. The alliance aims to promote the development of rail transit in ASEAN countries through resource sharing, talent demand forecasting, training platform development, and skill competition organization.",
+      "institutions": [
+        "Chinese rail transit vocational colleges (multiple)",
+        "ASEAN country transportation training institutions"
+      ]
+    },
+    {
+      "title": "GTVTC & SEAMEO TED China-ASEAN Transport Training Center",
+      "url": "https://catecp.seameoted.org/partner/24.html",
+      "source": "CATECP",
+      "date": "2023",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Energy Power",
+        "Transportation",
+        "Power Sector Professionals"
+      ],
+      "summary": "The China-ASEAN Transport Training Center addresses the need for power sector professionals across ASEAN by sharing China's two decades of experience in power sector development. Established under the China-ASEAN Energy Power Vocational Education Group (CAEPVEG), the center provides training resources and expertise to support regional energy and transportation infrastructure development.",
+      "institutions": [
+        "GTVTC (Guangxi Vocational and Technical College)",
+        "SEAMEO TED"
+      ]
+    },
+    {
+      "title": "CHINA (GUANGXI) - SEA TVET PROGRAM",
+      "url": "https://catecp.seameoted.org/partner/30.html",
+      "source": "CATECP",
+      "date": "2023",
+      "countries": [
+        "Cambodia",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "TVET",
+        "Technical Education",
+        "Vocational Training"
+      ],
+      "summary": "In January 2023, the Department of Education of the Guangxi Zhuang Autonomous Region signed an agreement with SEAMEO TED to jointly build the China (Guangxi) - SEA TVET Program in Phnom Penh, Cambodia. This is the first overseas training centre under this brand, jointly operated by Guangxi Department of Education and Cambodian institutions, serving broader Southeast Asian region.",
+      "institutions": [
+        "Department of Education of Guangxi Zhuang Autonomous Region",
+        "SEAMEO TED"
+      ]
+    },
+    {
+      "title": "ASEAN-China Smart Education Institute in Colourful Guizhou",
+      "url": "https://catecp.seameoted.org/partner/38.html",
+      "source": "CATECP",
+      "date": "2025",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "Digital Education",
+        "Smart Education",
+        "Cross-border Digital TVET"
+      ],
+      "summary": "The ASEAN-China Smart Education Institute in Colourful Guizhou is the first national-level international education cooperation service platform for ASEAN and Belt and Road countries to implement the China-ASEAN Education Action Plan. It promotes educational exchanges, drives collaboration in higher and vocational education, and explores cross-border digital education applications with micro-credentials and credit bank services.",
+      "institutions": [
+        "Guizhou Provincial Education Department",
+        "ASEAN Universities and Vocational Institutions"
+      ]
+    },
+    {
+      "title": "Sichuan Vocational College IT Innovation Center Thailand",
+      "url": "https://catecp.seameoted.org/partner/list/1.html",
+      "source": "CATECP",
+      "date": "2023",
+      "countries": [
+        "Thailand",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Information Technology",
+        "Digital Skills",
+        "Vocational Training"
+      ],
+      "summary": "Sichuan Vocational College of Information Technology established an overseas training and innovation base in Thailand to promote vocational education cooperation between China and Thailand, focusing on IT and digital technology skills development for ASEAN workforce.",
+      "institutions": [
+        "Sichuan Vocational College of Information Technology",
+        "Thai Vocational Education Institutions"
+      ]
+    },
+    {
+      "title": "China-ASEAN Digital TVET Cooperation Platform",
+      "url": "https://catecp.seameoted.org",
+      "source": "CATECP",
+      "date": "2020",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "Digital TVET",
+        "Online Vocational Training",
+        "E-learning"
+      ],
+      "summary": "The China-ASEAN Digital TVET Cooperation Platform was established to promote digital vocational education cooperation between China and ASEAN countries, providing online courses, virtual training resources, and digital competency certification for vocational students and workers across the region.",
+      "institutions": [
+        "Chinese Vocational Colleges",
+        "ASEAN National TVET Institutions"
+      ]
+    },
+    {
+      "title": "SEAMEO VOCTECH Regional Centre (Brunei)",
+      "url": "https://catecp.seameoted.org/partner/15.html",
+      "source": "CATECP",
+      "date": "1990",
+      "countries": [
+        "Brunei",
+        "China",
+        "ASEAN"
+      ],
+      "category": "platform",
+      "specialties": [
+        "TVET",
+        "Vocational Education",
+        "Technical Training"
+      ],
+      "summary": "The SEAMEO Regional Centre for Vocational and Technical Education and Training (SEAMEO VOCTECH) was established on 28 August 1990 in Brunei Darussalam. It is mandated to assist SEAMEO-member countries to identify and solve common problems in technical vocational education and training, undertaking activities in professional development, research, consultancy, and information dissemination.",
+      "institutions": [
+        "SEAMEO VOCTECH",
+        "Chinese Vocational Colleges (regional cooperation)"
+      ]
+    },
+    {
+      "title": "SEAMEO TED Technical Education Development Centre",
+      "url": "https://catecp.seameoted.org/partner/9.html",
+      "source": "CATECP",
+      "date": "2017",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "Technical Education",
+        "TVET",
+        "Curriculum Development"
+      ],
+      "summary": "SEAMEO Regional Centre for Technical Education Development (SEAMEO TED) was established on 25 July 2017 to assist SEAMEO Member Countries in identifying educational problems and finding alternative solutions for sustainable human resource development through technical education. It partners with China on the China-ASEAN 2030 TVET Flagship Courses Sharing Initiative.",
+      "institutions": [
+        "SEAMEO TED",
+        "CATECP",
+        "Chinese Vocational Colleges"
+      ]
+    },
+    {
+      "title": "SEA Vocational-Technical High School Network",
+      "url": "https://catecp.seameoted.org/partner/8.html",
+      "source": "CATECP",
+      "date": "2023",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "Vocational-Technical Education",
+        "Secondary Level TVET",
+        "School Networks"
+      ],
+      "summary": "The SEA Vocational-Technical High School Network was established by SEAMEO TED to serve as a forum for school leaders, experts, researchers, academics, and stakeholders in vocational-technical education and training at secondary level from SEAMEO Member Countries. The network enables partnership, feedback, and input for promoting quality and relevant technical education across Southeast Asia.",
+      "institutions": [
+        "SEAMEO TED",
+        "ASEAN Technical-Vocational High Schools",
+        "Chinese Vocational Colleges"
+      ]
+    },
+    {
+      "title": "China-ASEAN 2030 TVET Flagship Courses Sharing Initiative",
+      "url": "https://catecp.seameoted.org/news/192.html",
+      "source": "CATECP",
+      "date": "2025",
+      "countries": [
+        "ASEAN",
+        "China"
+      ],
+      "category": "platform",
+      "specialties": [
+        "TVET Standards",
+        "Digital Courses",
+        "AI",
+        "E-commerce",
+        "Logistics"
+      ],
+      "summary": "In response to the China-ASEAN 2030 TVET Flagship Courses Sharing Initiative initiated by SEAMEO TED, Chinese vocational colleges are developing and sharing international digital flagship courses that meet the needs of Chinese enterprises' international capacity cooperation and align with industry development plans of Southeast Asian countries including Vietnam, Thailand, Myanmar, Malaysia, Philippines, Singapore, and Brunei.",
+      "institutions": [
+        "Sichuan Vocational College of Information Technology",
+        "Guangxi International Business Vocational College",
+        "Kunming Preschool Education College",
+        "Hunan Modern Logistics College",
+        "SEAMEO TED"
+      ]
+    },
+    {
+      "title": "GO STUDY GLOBAL EDUCATION - International Education Consultation",
+      "url": "https://catecp.seameoted.org/partner/7.html",
+      "source": "CATECP",
+      "date": "2022",
+      "countries": [
+        "China",
+        "ASEAN"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "International Education",
+        "Student Mobility",
+        "Teacher Training"
+      ],
+      "summary": "GO STUDY GLOBAL EDUCATION, based in Chengdu and Nanning city in China, focuses on international education consultation making study abroad accessible and affordable. Since 2014, they have established cooperation with many Chinese universities connecting them with overseas universities, facilitating student mobility programs, teachers' overseas training, and international academic conferences across ASEAN countries.",
+      "institutions": [
+        "GO STUDY GLOBAL EDUCATION",
+        "Chinese Universities",
+        "ASEAN Partner Universities"
+      ]
+    },
+    {
+      "title": "ASEAN-China Education Cooperation Platform - Thailand Digital Education Initiative",
+      "url": "https://www.acscei.cn/portal/index",
+      "source": "ASEAN-China Smart Education Institute",
+      "date": "2025",
+      "countries": [
+        "Thailand",
+        "China",
+        "ASEAN"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Digital Education",
+        "Smart Education",
+        "Cross-border Digital TVET"
+      ],
+      "summary": "The ASEAN-China Smart Education Institute in Colourful Guizhou promotes educational exchanges and cooperation between China, ASEAN, and Belt and Road countries, driving collaboration in higher and vocational education. Thailand participates as a key ASEAN partner in this national-level international education cooperation service platform implementing the China-ASEAN Education Action Plan.",
+      "institutions": [
+        "Guizhou Provincial Education Department",
+        "Thai Universities and Vocational Institutions",
+        "ASEAN Universities"
+      ]
+    },
+    {
+      "title": "Sichuan Vocational College IT Innovation Center Thailand - AI Courses for ASEAN",
+      "url": "https://catecp.seameoted.org/news/192.html",
+      "source": "CATECP",
+      "date": "2026",
+      "countries": [
+        "Thailand",
+        "China"
+      ],
+      "category": "existing_cooperation",
+      "specialties": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Data Annotation"
+      ],
+      "summary": "Sichuan Vocational College of Information Technology has launched four international digital courses under the AI technology application professional standard, including Machine Learning, Introduction to Artificial Intelligence, Deep Learning, and Data Annotation. These courses are promoted by SEAMEO TED to vocational institutions across ASEAN including Thailand, contributing to technical talent cultivation.",
+      "institutions": [
+        "Sichuan Vocational College of Information Technology",
+        "Thai Vocational Education Institutions",
+        "SEAMEO TED"
+      ]
     }
   ]
 }

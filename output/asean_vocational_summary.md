@@ -1,6 +1,6 @@
 # China-ASEAN Vocational Education Cooperation Research Summary
 
-Generated: 2026-05-13
+Generated: 2026-05-14
 
 ## Executive Summary
 
