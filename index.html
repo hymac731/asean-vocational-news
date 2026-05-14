@@ -286,16 +286,16 @@
 <script>
 // ─── ASEAN Countries config ───
 const ASEAN_COUNTRIES = [
-  { code: 'KHM', name: '柬埔寨', flag: '🇰🇭', en: 'Cambodia' },
-  { code: 'LAO', name: '老挝', flag: '🇱🇦', en: 'Laos' },
-  { code: 'VNM', name: '越南', flag: '🇻🇳', en: 'Vietnam' },
-  { code: 'THA', name: '泰国', flag: '🇹🇭', en: 'Thailand' },
-  { code: 'MMR', name: '缅甸', flag: '🇲🇲', en: 'Myanmar' },
-  { code: 'MYS', name: '马来西亚', flag: '🇲🇾', en: 'Malaysia' },
-  { code: 'SGP', name: '新加坡', flag: '🇸🇬', en: 'Singapore' },
-  { code: 'IDN', name: '印度尼西亚', flag: '🇮🇩', en: 'Indonesia' },
-  { code: 'BRN', name: '文莱', flag: '🇧🇳', en: 'Brunei' },
-  { code: 'PHL', name: '菲律宾', flag: '🇵🇭', en: 'Philippines' },
+  { code: 'KHM', name: '柬埔寨', flag: '🇰🇭', en: 'Cambodia', altNames: ['Cambodia', 'Kampuchea', 'KHM'] },
+  { code: 'LAO', name: '老挝', flag: '🇱🇦', en: 'Laos', altNames: ['Laos', 'Lao PDR', 'LAO'] },
+  { code: 'VNM', name: '越南', flag: '🇻🇳', en: 'Vietnam', altNames: ['Vietnam', 'Viet Nam', 'VNM'] },
+  { code: 'THA', name: '泰国', flag: '🇹🇭', en: 'Thailand', altNames: ['Thailand', 'THA'] },
+  { code: 'MMR', name: '缅甸', flag: '🇲🇲', en: 'Myanmar', altNames: ['Myanmar', 'Burma', 'MMR'] },
+  { code: 'MYS', name: '马来西亚', flag: '🇲🇾', en: 'Malaysia', altNames: ['Malaysia', 'MYS'] },
+  { code: 'SGP', name: '新加坡', flag: '🇸🇬', en: 'Singapore', altNames: ['Singapore', 'SGP'] },
+  { code: 'IDN', name: '印度尼西亚', flag: '🇮🇩', en: 'Indonesia', altNames: ['Indonesia', 'IDN'] },
+  { code: 'BRN', name: '文莱', flag: '🇧🇳', en: 'Brunei', altNames: ['Brunei', 'Brunei Darussalam', 'BRN'] },
+  { code: 'PHL', name: '菲律宾', flag: '🇵🇭', en: 'Philippines', altNames: ['Philippines', 'PHL'] },
 ];
 
 // Country ISO numeric codes in natural-earth / world-atlas
@@ -341,9 +341,15 @@ async function loadData() {
 
 // ─── Get articles for a country ───
 function getArticles(countryCode) {
+  const country = ASEAN_COUNTRIES.find(c => c.code === countryCode);
+  if (!country) return [];
+  const matchNames = [country.en, country.code, ...(country.altNames || [])];
   return allArticles.filter(a => {
-    const cs = (a.countries || []).map(c => c.toUpperCase().trim());
-    return cs.includes(countryCode) || cs.some(c => c.includes(countryCode));
+    const cs = (a.countries || []).map(c => c.trim());
+    const isPanASEAN = cs.includes('ASEAN') && cs.length === 1;
+    const isSpecific = cs.some(c => matchNames.some(m => c.toUpperCase().includes(m.toUpperCase())));
+    // Pan-ASEAN platform entries visible for all countries; specific entries only for matching country
+    return isSpecific || (isPanASEAN && a.category === 'platform');
   });
 }
 
